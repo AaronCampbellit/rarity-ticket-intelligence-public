@@ -1,0 +1,26 @@
+version: 1
+timezone: UTC
+jobs:
+  - name: weekly-full
+    type: full
+    calendar: Sun *-*-* 02:00:00
+    randomized_delay_seconds: 900
+  - name: nightly-differential
+    type: diff
+    calendar: Mon..Sat *-*-* 02:00:00
+    randomized_delay_seconds: 900
+  - name: six-hour-incremental
+    type: incr
+    calendar: "*-*-* 00,06,12,18:00:00"
+    randomized_delay_seconds: 600
+  - name: restore-verification
+    type: restore-verify
+    calendar: monthly
+    day: 15
+    time: "04:00:00"
+evidence_retention_days: 365
+restore_point_retention_days: 90
+archive_delay_seconds:
+  warning: 120
+  critical: 240
+  rpo_at_risk: 300

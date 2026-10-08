@@ -1,0 +1,24 @@
+global
+  log stdout format raw local0
+  maxconn 512
+  ssl-default-server-options ssl-min-ver TLSv1.2
+
+defaults
+  log global
+  mode tcp
+  option tcplog
+  timeout connect 5s
+  timeout client 60s
+  timeout server 60s
+
+frontend rarity_postgres_write
+  bind ${RARITY_NODE_IP}:5432 ssl crt /run/rarity-tls/haproxy/server.pem ca-file /run/rarity-tls/ca/ca.crt verify required
+  default_backend patroni_primary
+
+backend patroni_primary
+  option httpchk GET /primary
+  http-check expect status 200
+  default-server inter 2s fall 3 rise 2 check-ssl ca-file /run/rarity-tls/ca/ca.crt crt /run/rarity-tls/haproxy/client.pem verify required
+  server rti-db-1 ${RARITY_NODE_1_IP}:5433 ssl check port 8008
+  server rti-db-2 ${RARITY_NODE_2_IP}:5433 ssl check port 8008
+  server rti-db-3 ${RARITY_NODE_3_IP}:5433 ssl check port 8008

@@ -1,0 +1,132 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color: var(--rti-text-primary);
+  background: var(--rti-surface-canvas);
+  font-family: var(--rti-font-family);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--rti-text-secondary);
+  background: var(--rti-surface-canvas);
+  font-size: var(--rti-font-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-feature-settings:
+    "ss01" 1,
+    "cv05" 1;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  transition:
+    color var(--rti-motion-fast) var(--rti-ease-standard),
+    background-color var(--rti-motion-fast) var(--rti-ease-standard),
+    border-color var(--rti-motion-fast) var(--rti-ease-standard),
+    box-shadow var(--rti-motion-fast) var(--rti-ease-standard),
+    opacity var(--rti-motion-fast) var(--rti-ease-standard),
+    transform var(--rti-motion-fast) var(--rti-ease-standard);
+}
+
+* {
+  scrollbar-color: var(--rti-surface-navigation-hover) transparent;
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--rti-surface-navigation-hover);
+  background-clip: content-box;
+  border: 2px solid transparent;
+  border-radius: 8px;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Native controls in older feature forms share the same foundation as typed fields. */
+:where(button) {
+  min-height: 2.25rem;
+  padding: 0.5rem 0.75rem;
+  color: var(--rti-text-primary);
+  background: var(--rti-surface-control);
+  border: 1px solid var(--rti-border-strong);
+  border-radius: var(--rti-radius-control);
+  cursor: pointer;
+}
+:where(button:disabled) {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+:where(
+  input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+  select,
+  textarea
+) {
+  min-width: 0;
+  max-width: 100%;
+  min-height: var(--rti-control-height-default);
+  padding: 0.5rem 0.75rem;
+  color: var(--rti-text-primary);
+  background: var(--rti-surface-control);
+  border: 1px solid var(--rti-border-strong);
+  border-radius: var(--rti-radius-control);
+}
+:where(textarea) {
+  resize: vertical;
+}
+:where(h1, h2, h3) {
+  color: var(--rti-text-primary);
+  line-height: 1.3;
+}
+:where(h2) {
+  font-size: var(--rti-font-section-title);
+}
+:where(h3) {
+  font-size: 1rem;
+}
+:where(svg) {
+  flex-shrink: 0;
+}

@@ -1,0 +1,46 @@
+name: rarity-postgres-ha
+
+x-runtime: &runtime
+  network_mode: host
+  restart: unless-stopped
+  read_only: true
+  security_opt: [no-new-privileges:true]
+  logging:
+    driver: local
+    options:
+      max-size: "50m"
+      max-file: "5"
+
+services:
+  etcd:
+    <<: *runtime
+    image: ${ETCD_IMAGE_REPOSITORY:?ETCD_IMAGE_REPOSITORY is required}@${ETCD_IMAGE_DIGEST:?ETCD_IMAGE_DIGEST is required}
+    env_file:
+      - ${RARITY_RENDERED_CONFIG_DIR:?RARITY_RENDERED_CONFIG_DIR is required}/etcd.env
+    volumes:
+      - ${RARITY_DATA_DIR:?RARITY_DATA_DIR is required}/etcd:/var/lib/etcd
+      - ${RARITY_TLS_DIR:?RARITY_TLS_DIR is required}:/run/rarity-tls:ro
+    tmpfs: [/tmp]
+
+  patroni:
+    <<: *runtime
+    image: ${PATRONI_IMAGE_REPOSITORY:?PATRONI_IMAGE_REPOSITORY is required}@${PATRONI_IMAGE_DIGEST:?PATRONI_IMAGE_DIGEST is required}
+    depends_on: [etcd]
+    command: [patroni, /etc/patroni/patroni.yaml]
+    volumes:
+      - ${RARITY_DATA_DIR:?RARITY_DATA_DIR is required}/postgres:/var/lib/postgresql/data
+      - ${RARITY_RENDERED_CONFIG_DIR:?RARITY_RENDERED_CONFIG_DIR is required}/patroni.yaml:/etc/patroni/patroni.yaml:ro
+      - ${RARITY_TLS_DIR:?RARITY_TLS_DIR is required}:/run/rarity-tls:ro
+      - ${PGBACKREST_CONFIG_DIR:?PGBACKREST_CONFIG_DIR is required}:/etc/pgbackrest:ro
+      - ${PGBACKREST_SPOOL_DIR:?PGBACKREST_SPOOL_DIR is required}:/var/spool/pgbackrest
+      - /dev/watchdog:/dev/watchdog
+    tmpfs: [/tmp, /run/patroni]
+
+  haproxy:
+    <<: *runtime
+    image: ${HAPROXY_IMAGE_REPOSITORY:?HAPROXY_IMAGE_REPOSITORY is required}@${HAPROXY_IMAGE_DIGEST:?HAPROXY_IMAGE_DIGEST is required}
+    depends_on: [patroni]
+    volumes:
+      - ${RARITY_RENDERED_CONFIG_DIR:?RARITY_RENDERED_CONFIG_DIR is required}/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+      - ${RARITY_TLS_DIR:?RARITY_TLS_DIR is required}:/run/rarity-tls:ro
+    tmpfs: [/tmp]

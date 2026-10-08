@@ -1,0 +1,155 @@
+.teams-settings-page {
+  min-width: 0;
+  padding: 32px;
+  color: var(--rti-text-primary);
+}
+
+.teams-settings-header,
+.teams-section-heading,
+.teams-card-heading,
+.teams-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.teams-settings-header {
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.teams-settings-header h1,
+.teams-panel h2,
+.teams-connections h2,
+.teams-card h3 {
+  margin: 0;
+}
+
+.teams-settings-header p,
+.teams-card p {
+  color: var(--rti-text-secondary);
+}
+
+.teams-settings-page button {
+  min-height: 40px;
+  border: 1px solid var(--rti-status-info);
+  border-radius: 8px;
+  padding: 8px 14px;
+  color: var(--rti-text-inverse);
+  background: var(--rti-status-info);
+  font: inherit;
+  cursor: pointer;
+}
+
+.teams-settings-page button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.teams-panel,
+.teams-card {
+  border: 1px solid var(--rti-border-strong);
+  border-radius: 12px;
+  padding: 20px;
+  background: var(--rti-surface-panel);
+  box-shadow: 0 2px 8px rgb(30 48 80 / 6%);
+}
+
+.teams-panel {
+  margin-bottom: 24px;
+}
+
+.teams-form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 18px 0;
+}
+
+.teams-form-grid label {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  font-weight: 650;
+}
+
+.teams-form-grid input {
+  min-width: 0;
+  border: 1px solid var(--rti-border-strong);
+  border-radius: 8px;
+  padding: 10px;
+  font: inherit;
+}
+
+.teams-connections {
+  min-width: 0;
+}
+
+.teams-connections > * + * {
+  margin-top: 16px;
+}
+
+.teams-card-heading {
+  align-items: flex-start;
+}
+
+.teams-health {
+  border-radius: 999px;
+  padding: 5px 10px;
+  color: var(--rti-text-primary);
+  background: var(--rti-status-info-surface);
+  font-size: 0.85rem;
+  text-transform: capitalize;
+}
+
+.teams-health.healthy {
+  color: var(--rti-status-success);
+  background: var(--rti-status-success-surface);
+}
+
+.teams-health.failed,
+.teams-health.degraded {
+  color: var(--rti-status-warning);
+  background: var(--rti-status-danger-surface);
+}
+
+.teams-actions {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.teams-actions button {
+  color: var(--rti-status-info);
+  background: var(--rti-surface-panel);
+}
+
+.teams-alert:not([hidden]) {
+  margin-bottom: 12px;
+  border-left: 4px solid var(--rti-action-primary);
+  padding: 12px;
+  color: var(--rti-text-danger);
+  background: var(--rti-status-danger-surface);
+}
+
+.teams-status {
+  min-height: 24px;
+  margin-bottom: 8px;
+  color: var(--rti-status-success);
+}
+
+@media (max-width: 760px) {
+  .teams-settings-page {
+    padding: 20px 16px;
+  }
+
+  .teams-settings-header,
+  .teams-card-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .teams-form-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

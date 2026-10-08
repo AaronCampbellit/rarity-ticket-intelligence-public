@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Build-readiness decision worksheet for Rarity Ticket Intelligence.">
+  <title>Rarity — Build Readiness Decisions</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="build-readiness.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to decisions</a>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Return to Rarity architecture tracker"><span class="brand-mark" aria-hidden="true">R</span><span><strong>Rarity</strong><small>Build-readiness decisions</small></span></a>
+    <nav aria-label="Worksheet navigation"><a href="index.html">Architecture tracker</a><a href="v1-decisions.html">V1 decisions</a><a href="#questions">Decisions</a></nav>
+    <span class="local-badge">Saved locally</span>
+  </header>
+  <main id="main" class="worksheet">
+    <section class="worksheet-hero">
+      <p class="eyebrow">Phase 0 · Historical decision record</p>
+      <h1>The build-readiness<br><span>baseline.</span></h1>
+      <p>These technical and delivery choices governed the implemented V1 baseline. They are retained for traceability; current work is release evidence collection rather than unresolved build definition.</p>
+      <div class="worksheet-summary"><div class="worksheet-progress"><span id="complete-count">0</span><small>of <span id="total-count">0</span> decided</small></div><div class="progress-track" aria-hidden="true"><span id="progress-fill"></span></div><p id="progress-text">Start with the application stack and production data path.</p></div>
+    </section>
+    <section class="worksheet-controls" aria-label="Decision filters and actions">
+      <label class="search"><span class="sr-only">Search decisions</span><input id="question-search" type="search" placeholder="Search stack, PostgreSQL, Datto, Teams…" autocomplete="off"></label>
+      <label><span class="sr-only">Filter by category</span><select id="question-category"><option value="all">All categories</option></select></label>
+      <label class="checkbox-filter"><input id="open-only" type="checkbox"> Show open only</label>
+      <button id="export-button" class="button primary" type="button">Export answers as Markdown</button>
+      <button id="clear-button" class="button secondary" type="button">Clear local answers</button>
+    </section>
+    <section class="worksheet-note"><strong>Complete baseline:</strong> all eleven project decisions are approved. Browser-local notes and exported exceptions remain available as historical context.</section>
+    <section id="questions" class="question-workspace" aria-live="polite"></section>
+    <p id="no-questions" class="empty-state" hidden>No decisions match those filters.</p>
+  </main>
+  <footer><p><strong>Rarity Ticket Intelligence</strong> · Phase 0 build-readiness record</p><p>Notes use browser-local storage. Export them before clearing browser data.</p></footer>
+</body>
+</html>

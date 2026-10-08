@@ -1,0 +1,23 @@
+x-demo-service: &demo-service
+  restart: unless-stopped
+
+services:
+  rarity-api:
+    <<: *demo-service
+
+  rarity-web:
+    <<: *demo-service
+
+  postgres:
+    <<: *demo-service
+
+  valkey:
+    <<: *demo-service
+
+  minio:
+    <<: *demo-service
+
+  caddy:
+    <<: *demo-service
+    ports: !override
+      - "${RARITY_DEMO_BIND_ADDRESS:-0.0.0.0}:${RARITY_DEMO_HTTP_PORT:?RARITY_DEMO_HTTP_PORT is required}:80"

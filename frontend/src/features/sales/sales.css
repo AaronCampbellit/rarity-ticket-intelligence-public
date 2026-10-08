@@ -1,0 +1,649 @@
+:root {
+  --rarity-ink: var(--rti-text-primary);
+  --rarity-muted: var(--rti-text-secondary);
+  --rarity-line: var(--rti-border-default);
+  --rarity-line-strong: var(--rti-border-strong);
+  --rarity-surface: var(--rti-surface-panel);
+  --rarity-soft: var(--rti-surface-inset);
+  --rarity-red: var(--rti-action-primary);
+  --rarity-red-dark: var(--rti-action-primary);
+  --rarity-red-soft: var(--rti-status-danger-surface);
+  --rarity-amber: var(--rti-status-warning);
+  --rarity-amber-soft: var(--rti-status-warning-surface);
+}
+
+.sales-page {
+  min-height: 100%;
+  padding: 30px 34px 48px;
+  color: var(--rarity-ink);
+  background: var(--rti-surface-panel);
+  font-family:
+    Inter,
+    ui-sans-serif,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+.sales-record-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--rarity-line);
+}
+
+.record-id {
+  margin: 0 0 6px;
+  color: var(--rti-text-danger);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+}
+
+.sales-record-header h1 {
+  margin: 0;
+  font-size: clamp(25px, 2.3vw, 34px);
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  line-height: 1.13;
+}
+
+.record-context,
+.panel-heading p {
+  margin: 8px 0 0;
+  color: var(--rarity-muted);
+  font-size: 14px;
+}
+
+.record-value {
+  display: grid;
+  gap: 4px;
+  text-align: right;
+}
+
+.record-value strong {
+  font-size: 24px;
+  letter-spacing: -0.025em;
+}
+
+.record-value span {
+  color: var(--rarity-muted);
+  font-size: 13px;
+}
+
+.stage-strip {
+  display: grid;
+  grid-template-columns: minmax(150px, 1fr) minmax(150px, 1fr) auto;
+  align-items: center;
+  gap: 1px;
+  margin: 24px 0;
+  overflow: hidden;
+  background: var(--rarity-line);
+  border: 1px solid var(--rarity-line);
+  border-radius: 9px;
+}
+
+.stage-strip > div {
+  display: grid;
+  min-height: 88px;
+  align-content: center;
+  gap: 3px;
+  padding: 14px 18px;
+  background: var(--rarity-soft);
+}
+
+.stage-strip span,
+.stage-strip small {
+  color: var(--rarity-muted);
+  font-size: 12px;
+}
+
+.stage-strip strong {
+  font-size: 17px;
+}
+
+.sales-primary {
+  min-height: 88px;
+  padding: 0 24px;
+  color: var(--rti-text-inverse);
+  background: var(--rarity-red);
+  border: 0;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.sales-primary:hover {
+  background: var(--rarity-red-dark);
+}
+
+.sales-primary:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.sales-error {
+  padding: 11px 14px;
+  color: var(--rarity-red-dark);
+  background: var(--rarity-red-soft);
+  border: 1px solid var(--rti-status-danger-surface);
+  border-radius: 7px;
+  font-size: 14px;
+}
+
+.sales-grid,
+.proposal-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(260px, 0.8fr);
+  gap: 20px;
+}
+
+.sales-panel {
+  min-width: 0;
+  padding: 20px;
+  background: var(--rarity-surface);
+  border: 1px solid var(--rarity-line);
+  border-radius: 9px;
+}
+
+.panel-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.panel-heading h2,
+.sales-context h2 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+}
+
+.sales-field,
+.compact-field {
+  display: grid;
+  gap: 7px;
+  color: var(--rti-text-primary);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.sales-field textarea,
+.sales-field select,
+.compact-field select {
+  width: 100%;
+  color: var(--rarity-ink);
+  background: var(--rti-surface-panel);
+  border: 1px solid var(--rarity-line-strong);
+  border-radius: 7px;
+  font: inherit;
+  font-weight: 450;
+}
+
+.sales-field textarea {
+  min-height: 92px;
+  resize: vertical;
+  padding: 11px 12px;
+}
+
+.sales-field select,
+.compact-field select {
+  min-height: 38px;
+  padding: 0 34px 0 10px;
+}
+
+.sales-field textarea:focus,
+.sales-field select:focus,
+.compact-field select:focus {
+  outline: 3px solid rgb(189 15 23 / 13%);
+  border-color: var(--rarity-red);
+}
+
+.activity-list,
+.task-list,
+.version-rail ol,
+.pipeline-stage ol {
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.activity-list li {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 16px;
+  padding: 14px 0;
+  border-top: 1px solid var(--rarity-line);
+}
+
+.activity-list time {
+  color: var(--rarity-muted);
+  font-size: 12px;
+}
+
+.activity-list p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.sales-context {
+  display: grid;
+  align-content: start;
+  gap: 24px;
+}
+
+.task-list {
+  display: grid;
+  gap: 10px;
+}
+
+.task-list li {
+  display: flex;
+  gap: 9px;
+  font-size: 14px;
+}
+
+.approval-state {
+  padding: 8px 11px;
+  color: var(--rti-status-success);
+  background: var(--rti-status-success-surface);
+  border: 1px solid var(--rti-status-success-surface);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.approval-state.warning {
+  color: var(--rarity-amber);
+  background: var(--rarity-amber-soft);
+  border-color: var(--rti-status-warning-surface);
+}
+
+.proposal-layout {
+  margin-top: 24px;
+}
+
+.compact-field {
+  min-width: 180px;
+}
+
+.proposal-table-wrap {
+  overflow-x: auto;
+}
+
+.proposal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.proposal-table th,
+.proposal-table td {
+  padding: 12px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--rarity-line);
+}
+
+.proposal-table thead th {
+  color: var(--rarity-muted);
+  background: var(--rarity-soft);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.proposal-table tfoot th,
+.proposal-table tfoot td {
+  border-bottom: 0;
+  font-weight: 700;
+}
+
+.version-rail ol {
+  display: grid;
+  gap: 12px;
+}
+
+.version-rail li {
+  padding: 14px;
+  background: var(--rarity-soft);
+  border: 1px solid var(--rarity-line);
+  border-radius: 7px;
+}
+
+.version-rail li > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.version-rail li span,
+.version-rail li small {
+  color: var(--rarity-muted);
+  font-size: 12px;
+}
+
+.version-rail li p {
+  margin: 9px 0;
+  font-size: 13px;
+}
+
+.version-rail button {
+  min-height: 34px;
+  padding: 0 10px;
+  background: var(--rti-surface-panel);
+  border: 1px solid var(--rarity-line-strong);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pipeline-board {
+  display: grid;
+  grid-auto-columns: minmax(260px, 1fr);
+  grid-auto-flow: column;
+  gap: 14px;
+  margin-top: 24px;
+  overflow-x: auto;
+  padding-bottom: 14px;
+}
+
+.pipeline-stage {
+  min-height: 420px;
+  padding: 14px;
+  background: var(--rarity-soft);
+  border: 1px solid var(--rarity-line);
+  border-radius: 9px;
+}
+
+.pipeline-stage > header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 3px 3px 13px;
+}
+
+.pipeline-stage h2 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.pipeline-stage header span {
+  color: var(--rarity-muted);
+  font-size: 11px;
+}
+
+.pipeline-stage ol {
+  display: grid;
+  gap: 9px;
+}
+
+.pipeline-stage li a {
+  display: grid;
+  gap: 5px;
+  padding: 13px;
+  background: var(--rti-surface-panel);
+  border: 1px solid var(--rarity-line);
+  border-radius: 7px;
+}
+
+.pipeline-stage li a:hover {
+  border-color: var(--rarity-line-strong);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 5%);
+}
+
+.pipeline-stage li span {
+  color: var(--rarity-muted);
+  font-size: 12px;
+}
+
+.pipeline-stage dl {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0 0;
+}
+
+.pipeline-stage dl div {
+  display: grid;
+  gap: 2px;
+}
+
+.pipeline-stage dt {
+  color: var(--rarity-muted);
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.pipeline-stage dd {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+@media (max-width: 900px) {
+  .sales-page {
+    padding: 22px 18px 36px;
+  }
+
+  .sales-grid,
+  .proposal-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .stage-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sales-primary {
+    grid-column: 1 / -1;
+    min-height: 48px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sales-primary,
+  .pipeline-stage li a {
+    transition: none;
+  }
+}
+.sales-worklist-grid {
+  display: grid;
+  grid-template-columns: minmax(18rem, 1fr) minmax(20rem, 1.2fr);
+  gap: 1rem;
+}
+
+.sales-worklist__view {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1rem 0;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--rti-border-subtle);
+  border-radius: var(--rti-radius-panel);
+  background: var(--rti-surface-raised);
+}
+
+.sales-worklist__view > div:first-child {
+  display: grid;
+  gap: 0.12rem;
+}
+
+.sales-worklist__view span {
+  color: var(--rti-text-muted);
+  font-size: var(--rti-font-metadata);
+}
+
+.sales-worklist-grid[data-view="kanban"] {
+  grid-template-columns: 1fr;
+}
+
+.sales-worklist-grid[data-view="kanban"] > section:first-child {
+  min-width: 0;
+}
+
+.sales-kanban-card {
+  display: grid;
+  min-width: 0;
+  gap: 0.38rem;
+}
+
+.sales-kanban-card > span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+.sales-kanban-card em {
+  color: var(--rti-text-secondary);
+  font-size: var(--rti-font-metadata);
+  font-style: normal;
+  font-weight: 650;
+}
+
+.sales-kanban-card > strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sales-kanban-card > small {
+  color: var(--rti-text-muted);
+}
+
+.detail-card {
+  min-width: 0;
+  padding: var(--rti-space-5);
+  background: var(--rti-surface-panel);
+  border: 1px solid var(--rti-border-default);
+  border-radius: var(--rti-radius-panel);
+  box-shadow: var(--rti-elevation-1);
+}
+
+.detail-card h2 {
+  margin-top: 0;
+  overflow-wrap: anywhere;
+}
+
+.detail-card dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr));
+  gap: var(--rti-space-3);
+  margin: var(--rti-space-4) 0;
+}
+
+.detail-card dl > div {
+  min-width: 0;
+}
+
+.detail-card dt {
+  color: var(--rti-text-muted);
+  font-size: var(--rti-font-metadata);
+}
+
+.detail-card dd {
+  margin: var(--rti-space-1) 0 0;
+  overflow-wrap: anywhere;
+  color: var(--rti-text-primary);
+  font-weight: 650;
+}
+
+.detail-card form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  align-items: end;
+  gap: var(--rti-space-3);
+  margin-bottom: var(--rti-space-5);
+}
+
+.detail-card form label {
+  display: grid;
+  min-width: 0;
+  gap: var(--rti-space-1);
+  color: var(--rti-text-primary);
+  font-size: var(--rti-font-compact);
+  font-weight: 650;
+}
+
+.detail-card form input,
+.detail-card form select,
+.detail-card form textarea {
+  width: 100%;
+  min-width: 0;
+  min-height: var(--rti-density-control-height);
+  padding: var(--rti-space-2) var(--rti-space-3);
+  color: var(--rti-text-primary);
+  background: var(--rti-surface-control);
+  border: 1px solid var(--rti-border-strong);
+  border-radius: var(--rti-radius-control);
+}
+
+.detail-card form textarea {
+  min-height: 5rem;
+  resize: vertical;
+}
+
+.detail-card form > button {
+  width: fit-content;
+  min-height: var(--rti-density-control-height);
+  padding: 0 var(--rti-space-3);
+}
+
+.worklist-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 0.9rem;
+  color: var(--rti-text-primary);
+  background: var(--rti-surface-panel);
+  border: 1px solid var(--rti-border-subtle);
+  border-radius: var(--rti-radius-control);
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+.worklist-row:hover {
+  background: var(--rti-surface-hover);
+  border-color: var(--rti-border-strong);
+  transform: translateY(-1px);
+}
+
+.worklist-row span:first-child {
+  display: grid;
+}
+
+.worklist-row.active {
+  background: var(--rti-surface-selected);
+  border-color: color-mix(
+    in srgb,
+    var(--rti-action-primary) 52%,
+    var(--rti-border-default)
+  );
+  box-shadow: inset 2px 0 0 var(--rti-action-primary);
+}
+
+.proposal-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1rem;
+}
+
+@media (max-width: 760px) {
+  .sales-worklist-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sales-worklist {
+  display: grid;
+  min-width: 0;
+  gap: 20px;
+}
+.sales-worklist__view {
+  margin: 0;
+}

@@ -1,0 +1,12 @@
+services:
+  rarity-api:
+    image: ${RARITY_API_IMAGE:?RARITY_API_IMAGE must be the verified GHCR digest reference}
+    build: !reset null
+
+  rarity-admin:
+    image: ${RARITY_API_IMAGE:?RARITY_API_IMAGE must be the verified GHCR digest reference}
+    build: !reset null
+
+  rarity-web:
+    image: ${RARITY_FRONTEND_IMAGE:?RARITY_FRONTEND_IMAGE must be the verified GHCR digest reference}
+    build: !reset null

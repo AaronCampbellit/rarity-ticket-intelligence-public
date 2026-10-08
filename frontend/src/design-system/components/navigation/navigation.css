@@ -1,0 +1,194 @@
+.rti-nav-group {
+  display: grid;
+  gap: var(--rti-space-1);
+}
+
+.rti-nav-group h2 {
+  margin: var(--rti-space-2) var(--rti-space-3) var(--rti-space-1);
+  color: var(--rti-text-muted);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.rti-admin-navigation__trigger {
+  display: flex;
+  width: 100%;
+  min-height: 44px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 13px;
+  color: var(--rti-text-inverse);
+  background: transparent;
+  border: 0;
+  border-radius: var(--rti-radius-control);
+  font: inherit;
+  font-weight: 700;
+  text-align: left;
+}
+
+.rti-admin-navigation__trigger:hover {
+  background: var(--rti-surface-navigation-hover);
+}
+
+.rti-admin-navigation__trigger svg {
+  transition: transform var(--rti-motion-standard);
+}
+
+.rti-admin-navigation__trigger[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.rti-admin-navigation__content {
+  display: grid;
+  gap: var(--rti-space-2);
+  padding-left: var(--rti-space-2);
+}
+
+.rti-admin-navigation__content section {
+  display: grid;
+  gap: var(--rti-space-1);
+}
+
+.rti-admin-navigation__content h3 {
+  margin: var(--rti-space-2) var(--rti-space-3) 0;
+  color: var(--rti-text-muted);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.rti-navigation-trigger,
+.rti-navigation-backdrop {
+  display: none;
+}
+
+.rti-command-bar {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--rti-space-2);
+}
+
+.rti-command-icon {
+  display: inline-grid;
+  width: var(--rti-control-height-default);
+  height: var(--rti-control-height-default);
+  flex: 0 0 auto;
+  padding: 0;
+  place-items: center;
+  color: var(--rti-text-secondary);
+  background: var(--rti-surface-control);
+  border: 1px solid var(--rti-border-default);
+  border-radius: var(--rti-radius-control);
+  cursor: pointer;
+}
+
+.rti-command-icon:hover,
+.rti-command-icon[aria-expanded="true"] {
+  color: var(--rti-text-primary);
+  background: var(--rti-surface-hover-strong);
+  border-color: var(--rti-border-strong);
+}
+
+.rti-presentation-menu {
+  position: relative;
+}
+
+.rti-presentation-menu__panel {
+  position: absolute;
+  top: calc(100% + var(--rti-space-2));
+  right: 0;
+  z-index: var(--rti-z-popover);
+  display: grid;
+  width: min(20rem, calc(100vw - 2rem));
+  gap: var(--rti-space-4);
+  padding: var(--rti-space-4);
+  color: var(--rti-text-primary);
+  background: var(--rti-surface-overlay);
+  border: 1px solid var(--rti-border-strong);
+  border-radius: var(--rti-radius-panel);
+  box-shadow: var(--rti-shadow-floating);
+}
+
+.rti-presentation-menu__panel header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: var(--rti-space-3);
+}
+
+.rti-presentation-menu__panel header div,
+.rti-presentation-menu__panel label {
+  display: grid;
+  gap: var(--rti-space-1);
+}
+
+.rti-presentation-menu__panel header span {
+  color: var(--rti-text-muted);
+  font-size: var(--rti-font-metadata);
+}
+
+.rti-presentation-menu__panel label {
+  color: var(--rti-text-secondary);
+  font-size: var(--rti-font-compact);
+  font-weight: 650;
+}
+
+.rti-presentation-menu__panel select {
+  min-height: var(--rti-control-height-default);
+  padding: 0 var(--rti-space-3);
+  color: var(--rti-text-primary);
+  background: var(--rti-surface-control);
+  border: 1px solid var(--rti-border-strong);
+  border-radius: var(--rti-radius-control);
+  font-size: var(--rti-font-compact);
+}
+
+@media (max-width: 760px) {
+  .rti-navigation-trigger {
+    position: fixed;
+    top: var(--rti-space-3);
+    left: var(--rti-space-3);
+    z-index: 40;
+    display: inline-grid;
+    width: 2.75rem;
+    height: 2.75rem;
+    place-items: center;
+    color: var(--rti-text-inverse);
+    background: var(--rti-surface-navigation);
+    border: 1px solid var(--rti-border-strong);
+    border-radius: var(--rti-radius-control);
+  }
+
+  .rti-navigation-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 29;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background: rgb(9 9 10 / 72%);
+    border: 0;
+  }
+
+  .rarity-sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 30;
+    width: min(13.25rem, 88vw);
+    max-width: 100%;
+    transform: translateX(-105%);
+    transition: transform var(--rti-motion-standard);
+  }
+
+  .rarity-sidebar[data-open] {
+    transform: translateX(0);
+  }
+}

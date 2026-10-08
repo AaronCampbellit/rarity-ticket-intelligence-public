@@ -1,0 +1,116 @@
+.automation-page {
+  display: grid;
+  gap: 28px;
+  padding: 0;
+}
+
+.automation-page > header {
+  max-width: 800px;
+}
+
+.automation-page section {
+  display: grid;
+  gap: 14px;
+}
+
+.automation-create,
+.automation-grid article,
+.dead-letter-list article {
+  padding: 18px;
+  background: var(--rti-surface-panel);
+  border: 1px solid var(--rti-border-default);
+  border-radius: 10px;
+  box-shadow: var(--rti-elevation-1);
+}
+
+.automation-create summary {
+  padding: var(--rti-space-1);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.automation-create[open] summary {
+  margin-bottom: 16px;
+}
+
+.automation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 16px;
+}
+
+.automation-grid article,
+.definition-form {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+
+.automation-grid article {
+  transition:
+    border-color var(--rti-motion-fast),
+    transform var(--rti-motion-fast);
+}
+
+.automation-grid article:hover {
+  border-color: var(--rti-border-strong);
+  transform: translateY(-1px);
+}
+
+.automation-grid article > header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.definition-form label,
+.dead-letter-list label {
+  display: grid;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.definition-form input,
+.definition-form textarea,
+.dead-letter-list input,
+.dead-letter-list select {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  padding: 9px 11px;
+  border: 1px solid var(--rti-border-strong);
+  border-radius: 7px;
+}
+
+.definition-form textarea {
+  min-height: 100px;
+  resize: vertical;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.dead-letter-list {
+  display: grid;
+  gap: 12px;
+}
+
+.dead-letter-list article {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.65fr);
+  gap: 18px;
+}
+
+.dead-letter-list form {
+  display: grid;
+  gap: 10px;
+}
+
+@media (max-width: 760px) {
+  .automation-page {
+    padding: 0;
+  }
+
+  .dead-letter-list article {
+    grid-template-columns: 1fr;
+  }
+}

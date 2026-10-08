@@ -1,0 +1,592 @@
+{
+  "schema_version": 1,
+  "inventory_date_utc": "2026-10-08",
+  "dependency_baseline_commit": "01a7064bcb3c2e11d7a3c2c70fe49ec6015264a6",
+  "scope": "Available license/NOTICE texts for observed production dependencies, generated Tailwind CSS and selected MPL/attribution development tools. Not an inventory or clearance of every container component or release artifact.",
+  "frontend_runtime": [
+    {
+      "name": "lucide-react",
+      "version": "1.28.0",
+      "scope": "runtime candidate; conservatively include notices for bundle distribution",
+      "license_summary": "ISC; MIT for Feather-derived portions",
+      "source_repository_url": "https://github.com/lucide-icons/lucide",
+      "package_tarball_url": "https://registry.npmjs.org/lucide-react/-/lucide-react-1.28.0.tgz",
+      "license_files": [
+        {
+          "path": "third-party-licenses/npm/lucide-react-1.28.0/LICENSE",
+          "sha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57",
+          "installed_package_license_path": "node_modules/lucide-react/LICENSE"
+        }
+      ]
+    },
+    {
+      "name": "react",
+      "version": "19.2.8",
+      "scope": "runtime candidate; conservatively include notices for bundle distribution",
+      "license_summary": "MIT",
+      "source_repository_url": "https://github.com/react/react",
+      "package_tarball_url": "https://registry.npmjs.org/react/-/react-19.2.8.tgz",
+      "license_files": [
+        {
+          "path": "third-party-licenses/npm/react-19.2.8/LICENSE",
+          "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93",
+          "installed_package_license_path": "node_modules/react/LICENSE"
+        }
+      ]
+    },
+    {
+      "name": "react-dom",
+      "version": "19.2.8",
+      "scope": "runtime candidate; conservatively include notices for bundle distribution",
+      "license_summary": "MIT",
+      "source_repository_url": "https://github.com/react/react",
+      "package_tarball_url": "https://registry.npmjs.org/react-dom/-/react-dom-19.2.8.tgz",
+      "license_files": [
+        {
+          "path": "third-party-licenses/npm/react-dom-19.2.8/LICENSE",
+          "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93",
+          "installed_package_license_path": "node_modules/react-dom/LICENSE"
+        }
+      ]
+    },
+    {
+      "name": "scheduler",
+      "version": "0.27.0",
+      "scope": "runtime candidate; conservatively include notices for bundle distribution",
+      "license_summary": "MIT",
+      "source_repository_url": "https://github.com/facebook/react",
+      "package_tarball_url": "https://registry.npmjs.org/scheduler/-/scheduler-0.27.0.tgz",
+      "license_files": [
+        {
+          "path": "third-party-licenses/npm/scheduler-0.27.0/LICENSE",
+          "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93",
+          "installed_package_license_path": "node_modules/scheduler/LICENSE"
+        }
+      ]
+    }
+  ],
+  "selected_development_build_tools": [
+    {
+      "name": "axe-core",
+      "version": "4.12.1",
+      "scope": "development/build/test only by lock metadata",
+      "license_summary": "MPL-2.0",
+      "source_repository_url": "https://github.com/dequelabs/axe-core",
+      "package_tarball_url": "https://registry.npmjs.org/axe-core/-/axe-core-4.12.1.tgz",
+      "license_files": [
+        {
+          "path": "third-party-licenses/npm/axe-core-4.12.1/LICENSE",
+          "sha256": "af175b9d96ee93c21a036152e1b905b0b95304d4ae8c2c921c7609100ba8df7e",
+          "installed_package_license_path": "node_modules/axe-core/LICENSE"
+        },
+        {
+          "path": "third-party-licenses/npm/axe-core-4.12.1/LICENSE-3RD-PARTY.txt",
+          "sha256": "4f8563870d0fca38bbc3e00b6f670cb7fa9f380ba9f26a7f7d1184a6b18b1653",
+          "installed_package_license_path": "node_modules/axe-core/LICENSE-3RD-PARTY.txt"
+        }
+      ]
+    },
+    {
+      "name": "lightningcss",
+      "version": "1.33.0",
+      "scope": "development/build/test only by lock metadata",
+      "license_summary": "MPL-2.0",
+      "source_repository_url": "https://github.com/parcel-bundler/lightningcss",
+      "package_tarball_url": "https://registry.npmjs.org/lightningcss/-/lightningcss-1.33.0.tgz",
+      "license_files": [
+        {
+          "path": "third-party-licenses/npm/lightningcss-1.33.0/LICENSE",
+          "sha256": "5eba353fe5076ac3432177f8ab1cf75e3afcd0584251e37c3bfead5f447d040e",
+          "installed_package_license_path": "node_modules/lightningcss/LICENSE"
+        }
+      ]
+    },
+    {
+      "name": "lightningcss-linux-x64-gnu",
+      "version": "1.33.0",
+      "scope": "development/build/test only by lock metadata",
+      "license_summary": "MPL-2.0",
+      "source_repository_url": "https://github.com/parcel-bundler/lightningcss",
+      "package_tarball_url": "https://registry.npmjs.org/lightningcss-linux-x64-gnu/-/lightningcss-linux-x64-gnu-1.33.0.tgz",
+      "license_files": [
+        {
+          "path": "third-party-licenses/npm/lightningcss-linux-x64-gnu-1.33.0/LICENSE",
+          "sha256": "5eba353fe5076ac3432177f8ab1cf75e3afcd0584251e37c3bfead5f447d040e",
+          "installed_package_license_path": "node_modules/lightningcss-linux-x64-gnu/LICENSE"
+        }
+      ]
+    }
+  ],
+  "go_runtime_modules": [
+    {
+      "name": "github.com/dustin/go-humanize",
+      "version": "v1.0.1",
+      "scope": "production executable dependency",
+      "license_summary": "MIT",
+      "source_archive_url": "https://proxy.golang.org/github.com/dustin/go-humanize/@v/v1.0.1.zip",
+      "license_files": [
+        {
+          "path": "third-party-licenses/go/github.com/dustin/go-humanize/v1.0.1/LICENSE",
+          "sha256": "a973b4498c13eb74baa2a8e5c351426a6826f2fcdd909916dbe53ee2e755fd71",
+          "module_license_path": "LICENSE"
+        }
+      ]
+    },
+    {
+      "name": "github.com/go-ini/ini",
+      "version": "v1.67.0",
+      "scope": "production executable dependency",
+      "license_summary": "Apache-2.0",
+      "source_archive_url": "https://proxy.golang.org/github.com/go-ini/ini/@v/v1.67.0.zip",
+      "license_files": [
+        {
+          "path": "third-party-licenses/go/github.com/go-ini/ini/v1.67.0/LICENSE",
+          "sha256": "f6918bd93ffe07f4b2c61b8287c32cb3122e08aed0be50f1c7d0eddc87877a8f",
+          "module_license_path": "LICENSE"
+        }
+      ]
+    },
+    {
+      "name": "github.com/goccy/go-json",
+      "version": "v0.10.5",
+      "scope": "production executable dependency",
+      "license_summary": "MIT",
+      "source_archive_url": "https://proxy.golang.org/github.com/goccy/go-json/@v/v0.10.5.zip",
+      "license_files": [
+        {
+          "path": "third-party-licenses/go/github.com/goccy/go-json/v0.10.5/LICENSE",
+          "sha256": "a707cd425201945d57500566c47c74dc9fb8cd02ef91b9a761abddeb2401e6a7",
+          "module_license_path": "LICENSE"
+        }
+      ]
+    },
+    {
+      "name": "github.com/google/uuid",
+      "version": "v1.6.0",
+      "scope": "production executable dependency",
+      "license_summary": "BSD-family (preserve full text)",
+      "source_archive_url": "https://proxy.golang.org/github.com/google/uuid/@v/v1.6.0.zip",
+      "license_files": [
+        {
+          "path": "third-party-licenses/go/github.com/google/uuid/v1.6.0/LICENSE",
+          "sha256": "0a8d61ed3cbfd5312326e8126c31ce9c627a283adc99131b56896d29ada04b2d",
+          "module_license_path": "LICENSE"
+        }
+      ]
+    },
+    {
+      "name": "github.com/jackc/pgpassfile",
+      "version": "v1.0.0",
+      "scope": "production executable dependency",
+      "license_summary": "MIT",
+      "source_archive_url": "https://proxy.golang.org/github.com/jackc/pgpassfile/@v/v1.0.0.zip",
+      "license_files": [
+        {
+          "path": "third-party-licenses/go/github.com/jackc/pgpassfile/v1.0.0/LICENSE",
+          "sha256": "adb1663fda031df8f4344aa68f299fd87d80353e31339406742ded21dae65702",
+          "module_license_path": "LICENSE"
+        }
+      ]
+    },
+    {
+      "name": "github.com/jackc/pgservicefile",
+      "version": "v0.0.0-20240606120523-5a60cdf6a761",
+      "scope": "production executable dependency",
+      "license_summary": "MIT",
+      "source_archive_url": "https://proxy.golang.org/github.com/jackc/pgservicefile/@v/v0.0.0-20240606120523-5a60cdf6a761.zip",
+      "license_files": [
+        {
+          "path": "third-party-licenses/go/github.com/jackc/pgservicefile/v0.0.0-20240606120523-5a60cdf6a761/LICENSE",
+          "sha256": "fc505773403fe869ed64cc2235cdd13988a427bb7e3a7e7004a3f4b27420f8fc",
+          "module_license_path": "LICENSE"
+        }
+      ]
+    },
+    {
+      "name": "github.com/jackc/pgx/v5",
+      "version": "v5.9.2",
+      "scope": "production executable dependency",
+      "license_summary": "MIT",
+      "source_archive_url": "https://proxy.golang.org/github.com/jackc/pgx/v5/@v/v5.9.2.zip",
+      "license_files": [
+        {
+          "path": "third-party-licenses/go/github.com/jackc/pgx/v5/v5.9.2/LICENSE",
+          "sha256": "467f95e074fe23079a5623ed652619682692041b8551da27e3c2ddb9659a1507",
+          "module_license_path": "LICENSE"
+        }
+      ]
+    },
+    {
+      "name": "github.com/jackc/puddle/v2",
+      "version": "v2.2.2",
+      "scope": "production executable dependency",
+      "license_summary": "MIT",
+      "source_archive_url": "https://proxy.golang.org/github.com/jackc/puddle/v2/@v/v2.2.2.zip",
+      "license_files": [
+        {
+          "path": "third-party-licenses/go/github.com/jackc/puddle/v2/v2.2.2/LICENSE",
+          "sha256": "2d50e98a4900b4d6457a38d39c1432fdc156fc2f7b365f2e33ec9344acbb0057",
+          "module_license_path": "LICENSE"
+        }
+      ]
+    },
+    {
+      "name": "github.com/klauspost/compress",
+      "version": "v1.18.7",
+      "scope": "production executable dependency",
+      "license_summary": "Apache-2.0; BSD-family (preserve full text); MIT",
+      "source_archive_url": "https://proxy.golang.org/github.com/klauspost/compress/@v/v1.18.7.zip",
+      "license_files": [
+        {
+          "path": "third-party-licenses/go/github.com/klauspost/compress/v1.18.7/LICENSE",
+          "sha256": "0d9e582ee4bff57bf1189c9e514e6da7ce277f9cd3bc2d488b22fbb39a6d87cf",
+          "module_license_path": "LICENSE"
+        },
+        {
+          "path": "third-party-licenses/go/github.com/klauspost/compress/v1.18.7/gzhttp/LICENSE",
+          "sha256": "2252a5b1e2b1d3663b53ea77051b8ed065cb9270a3d1174d5d6ead8a2de051b6",
+          "module_license_path": "gzhttp/LICENSE"
+        },
+        {
+          "path": "third-party-licenses/go/github.com/klauspost/compress/v1.18.7/internal/lz4ref/LICENSE",
+          "sha256": "6a358d2540ca14048f02d366f23787c0a480157e58f058113f0e27168dd4e447",
+          "module_license_path": "internal/lz4ref/LICENSE"
+        },
+        {
+          "path": "third-party-licenses/go/github.com/klauspost/compress/v1.18.7/internal/snapref/LICENSE",
+          "sha256": "f69f157b0be75da373605dbc8bbf142e8924ee82d8f44f11bcaf351335bf98cf",
+          "module_license_path": "internal/snapref/LICENSE"
+        },
+        {
+          "path": "third-party-licenses/go/github.com/klauspost/compress/v1.18.7/s2/LICENSE",
+          "sha256": "08683b14bda8ae3538abf19e1879e853a39e3b8276a8d673363b529d15a61c1a",
+          "module_license_path": "s2/LICENSE"
+        },
+        {
+          "path": "third-party-licenses/go/github.com/klauspost/compress/v1.18.7/s2/cmd/internal/filepathx/LICENSE",
+          "sha256": "8582c87d9a6baa28f7827c5205b7d16c3179bc794ebd4c7cc287c49a89b7eaa1",
+          "module_license_path": "s2/cmd/internal/filepathx/LICENSE"
+        },
+        {
+          "path": "third-party-licenses/go/github.com/klauspost/compress/v1.18.7/s2/cmd/internal/readahead/LICENSE",
+          "sha256": "10fa24a602fde465db603cd5d546e37e33642a73cd24ddf5910be81724fec8b2",
+          "module_license_path": "s2/cmd/internal/readahead/LICENSE"
+        },
+        {
+          "path": "third-party-licenses/go/github.com/klauspost/compress/v1.18.7/snappy/LICENSE",
+          "sha256": "f69f157b0be75da373605dbc8bbf142e8924ee82d8f44f11bcaf351335bf98cf",
+          "module_license_path": "snappy/LICENSE"
+        },
+        {
+          "path": "third-party-licenses/go/github.com/klauspost/compress/v1.18.7/snappy/xerial/LICENSE",
+          "sha256": "d4ff111fa30ac75e28dca3868de957a3b73ff50b76bc4b8fe5c3a1f008d26703",
+          "module_license_path": "snappy/xerial/LICENSE"
+        },
+        {
+          "path": "third-party-licenses/go/github.com/klauspost/compress/v1.18.7/zstd/internal/xxhash/LICENSE.txt",
+          "sha256": "f566a9f97bacdaf00d9f21dd991e81dc11201c4e016c86b470799429a1c9a79c",
+          "module_license_path": "zstd/internal/xxhash/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "name": "github.com/klauspost/cpuid/v2",
+      "version": "v2.2.11",
+      "scope": "production executable dependency",
+      "license_summary": "MIT",
+      "source_archive_url": "https://proxy.golang.org/github.com/klauspost/cpuid/v2/@v/v2.2.11.zip",
+      "license_files": [
+        {
+          "path": "third-party-licenses/go/github.com/klauspost/cpuid/v2/v2.2.11/LICENSE",
+          "sha256": "5d966570d7a442d4e969892860a914e542c97f262c873baee8f0aa48e1f40212",
+          "module_license_path": "LICENSE"
+        }
+      ]
+    },
+    {
+      "name": "github.com/mfridman/interpolate",
+      "version": "v0.0.2",
+      "scope": "production executable dependency",
+      "license_summary": "MIT",
+      "source_archive_url": "https://proxy.golang.org/github.com/mfridman/interpolate/@v/v0.0.2.zip",
+      "license_files": [
+        {
+          "path": "third-party-licenses/go/github.com/mfridman/interpolate/v0.0.2/LICENSE.txt",
+          "sha256": "21408182c12c98d402fa38a8b678560dc63fd6bada5a0017722883e4b79e6620",
+          "module_license_path": "LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "name": "github.com/minio/crc64nvme",
+      "version": "v1.0.2",
+      "scope": "production executable dependency",
+      "license_summary": "Apache-2.0",
+      "source_archive_url": "https://proxy.golang.org/github.com/minio/crc64nvme/@v/v1.0.2.zip",
+      "license_files": [
+        {
+          "path": "third-party-licenses/go/github.com/minio/crc64nvme/v1.0.2/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "module_license_path": "LICENSE"
+        }
+      ]
+    },
+    {
+      "name": "github.com/minio/md5-simd",
+      "version": "v1.1.2",
+      "scope": "production executable dependency",
+      "license_summary": "Apache-2.0; BSD-family (preserve full text)",
+      "source_archive_url": "https://proxy.golang.org/github.com/minio/md5-simd/@v/v1.1.2.zip",
+      "license_files": [
+        {
+          "path": "third-party-licenses/go/github.com/minio/md5-simd/v1.1.2/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "module_license_path": "LICENSE"
+        },
+        {
+          "path": "third-party-licenses/go/github.com/minio/md5-simd/v1.1.2/LICENSE.Golang",
+          "sha256": "2d36597f7117c38b006835ae7f537487207d8ec407aa9d9980794b2030cbc067",
+          "module_license_path": "LICENSE.Golang"
+        }
+      ]
+    },
+    {
+      "name": "github.com/minio/minio-go/v7",
+      "version": "v7.0.95",
+      "scope": "production executable dependency",
+      "license_summary": "Apache-2.0",
+      "source_archive_url": "https://proxy.golang.org/github.com/minio/minio-go/v7/@v/v7.0.95.zip",
+      "license_files": [
+        {
+          "path": "third-party-licenses/go/github.com/minio/minio-go/v7/v7.0.95/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "module_license_path": "LICENSE"
+        },
+        {
+          "path": "third-party-licenses/go/github.com/minio/minio-go/v7/v7.0.95/NOTICE",
+          "sha256": "570af5b6ac7fc91a78459073098200036e63d60a98ec92db5ed97d22d714d09e",
+          "module_license_path": "NOTICE"
+        }
+      ]
+    },
+    {
+      "name": "github.com/philhofer/fwd",
+      "version": "v1.2.0",
+      "scope": "production executable dependency",
+      "license_summary": "MIT",
+      "source_archive_url": "https://proxy.golang.org/github.com/philhofer/fwd/@v/v1.2.0.zip",
+      "license_files": [
+        {
+          "path": "third-party-licenses/go/github.com/philhofer/fwd/v1.2.0/LICENSE.md",
+          "sha256": "430da36bd967b28fc662f05e9245306da10941e93911052114a20ef10e4410f8",
+          "module_license_path": "LICENSE.md"
+        }
+      ]
+    },
+    {
+      "name": "github.com/pressly/goose/v3",
+      "version": "v3.26.0",
+      "scope": "production executable dependency",
+      "license_summary": "MIT",
+      "source_archive_url": "https://proxy.golang.org/github.com/pressly/goose/v3/@v/v3.26.0.zip",
+      "license_files": [
+        {
+          "path": "third-party-licenses/go/github.com/pressly/goose/v3/v3.26.0/LICENSE",
+          "sha256": "f23985556a879c0e68bb4e136ee4b88a550d26fa33db77a65d76b721c93093ef",
+          "module_license_path": "LICENSE"
+        }
+      ]
+    },
+    {
+      "name": "github.com/rs/xid",
+      "version": "v1.6.0",
+      "scope": "production executable dependency",
+      "license_summary": "MIT",
+      "source_archive_url": "https://proxy.golang.org/github.com/rs/xid/@v/v1.6.0.zip",
+      "license_files": [
+        {
+          "path": "third-party-licenses/go/github.com/rs/xid/v1.6.0/LICENSE",
+          "sha256": "c480873f0ff2b7e2c539bdd84fb4da4178d8d02479c94924f7bffeafb7add358",
+          "module_license_path": "LICENSE"
+        }
+      ]
+    },
+    {
+      "name": "github.com/sethvargo/go-retry",
+      "version": "v0.3.0",
+      "scope": "production executable dependency",
+      "license_summary": "Apache-2.0",
+      "source_archive_url": "https://proxy.golang.org/github.com/sethvargo/go-retry/@v/v0.3.0.zip",
+      "license_files": [
+        {
+          "path": "third-party-licenses/go/github.com/sethvargo/go-retry/v0.3.0/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "module_license_path": "LICENSE"
+        }
+      ]
+    },
+    {
+      "name": "github.com/tinylib/msgp",
+      "version": "v1.3.0",
+      "scope": "production executable dependency",
+      "license_summary": "MIT",
+      "source_archive_url": "https://proxy.golang.org/github.com/tinylib/msgp/@v/v1.3.0.zip",
+      "license_files": [
+        {
+          "path": "third-party-licenses/go/github.com/tinylib/msgp/v1.3.0/LICENSE",
+          "sha256": "17df22e31ef6a84f70909eed5185f41443a03dd05b14e8dec319d5c2bd7d7b3b",
+          "module_license_path": "LICENSE"
+        }
+      ]
+    },
+    {
+      "name": "go.uber.org/multierr",
+      "version": "v1.11.0",
+      "scope": "production executable dependency",
+      "license_summary": "MIT",
+      "source_archive_url": "https://proxy.golang.org/go.uber.org/multierr/@v/v1.11.0.zip",
+      "license_files": [
+        {
+          "path": "third-party-licenses/go/go.uber.org/multierr/v1.11.0/LICENSE.txt",
+          "sha256": "dcdabe03bef2382a130640d1c3a4cd5ec42aba1035095c38272fde694eb72405",
+          "module_license_path": "LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "name": "golang.org/x/crypto",
+      "version": "v0.56.0",
+      "scope": "production executable dependency",
+      "license_summary": "BSD-family (preserve full text)",
+      "source_archive_url": "https://proxy.golang.org/golang.org/x/crypto/@v/v0.56.0.zip",
+      "license_files": [
+        {
+          "path": "third-party-licenses/go/golang.org/x/crypto/v0.56.0/LICENSE",
+          "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
+          "module_license_path": "LICENSE"
+        }
+      ]
+    },
+    {
+      "name": "golang.org/x/net",
+      "version": "v0.57.0",
+      "scope": "production executable dependency",
+      "license_summary": "BSD-family (preserve full text)",
+      "source_archive_url": "https://proxy.golang.org/golang.org/x/net/@v/v0.57.0.zip",
+      "license_files": [
+        {
+          "path": "third-party-licenses/go/golang.org/x/net/v0.57.0/LICENSE",
+          "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
+          "module_license_path": "LICENSE"
+        }
+      ]
+    },
+    {
+      "name": "golang.org/x/sync",
+      "version": "v0.22.0",
+      "scope": "production executable dependency",
+      "license_summary": "BSD-family (preserve full text)",
+      "source_archive_url": "https://proxy.golang.org/golang.org/x/sync/@v/v0.22.0.zip",
+      "license_files": [
+        {
+          "path": "third-party-licenses/go/golang.org/x/sync/v0.22.0/LICENSE",
+          "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
+          "module_license_path": "LICENSE"
+        }
+      ]
+    },
+    {
+      "name": "golang.org/x/sys",
+      "version": "v0.47.0",
+      "scope": "production executable dependency",
+      "license_summary": "BSD-family (preserve full text)",
+      "source_archive_url": "https://proxy.golang.org/golang.org/x/sys/@v/v0.47.0.zip",
+      "license_files": [
+        {
+          "path": "third-party-licenses/go/golang.org/x/sys/v0.47.0/LICENSE",
+          "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
+          "module_license_path": "LICENSE"
+        }
+      ]
+    },
+    {
+      "name": "golang.org/x/term",
+      "version": "v0.45.0",
+      "scope": "production executable dependency",
+      "license_summary": "BSD-family (preserve full text)",
+      "source_archive_url": "https://proxy.golang.org/golang.org/x/term/@v/v0.45.0.zip",
+      "license_files": [
+        {
+          "path": "third-party-licenses/go/golang.org/x/term/v0.45.0/LICENSE",
+          "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
+          "module_license_path": "LICENSE"
+        }
+      ]
+    },
+    {
+      "name": "golang.org/x/text",
+      "version": "v0.41.0",
+      "scope": "production executable dependency",
+      "license_summary": "BSD-family (preserve full text)",
+      "source_archive_url": "https://proxy.golang.org/golang.org/x/text/@v/v0.41.0.zip",
+      "license_files": [
+        {
+          "path": "third-party-licenses/go/golang.org/x/text/v0.41.0/LICENSE",
+          "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
+          "module_license_path": "LICENSE"
+        }
+      ]
+    }
+  ],
+  "go_runtime_standard_library": {
+    "name": "Go runtime and standard library",
+    "version": "go1.26.8",
+    "scope": "compiled runtime/standard-library portions",
+    "license_summary": "BSD-3-Clause",
+    "source_repository_url": "https://go.googlesource.com/go/+/refs/tags/go1.26.8/LICENSE",
+    "license_files": [
+      {
+        "path": "third-party-licenses/go-runtime/go1.26.8/LICENSE",
+        "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+      }
+    ]
+  },
+  "external_services": [
+    {
+      "component": "MinIO server",
+      "image": "minio/minio:RELEASE.2025-04-22T22-12-26Z@sha256:a1ea29fa28355559ef137d71fc570e508a214ec84ff8083e39bc5428980b015e",
+      "license": "AGPL-3.0",
+      "license_source_url": "https://raw.githubusercontent.com/minio/minio/RELEASE.2025-04-22T22-12-26Z/LICENSE",
+      "scope": "separate external service image reference; no server source/image checked in",
+      "duties": "If conveying the image/binary, preserve terms and provide compliant Corresponding Source access/offer for actual conveyed contents. Modified AGPL network software requires covered source access to its remote users. Whole-image provenance/source completeness not verified."
+    },
+    {
+      "component": "PostgreSQL",
+      "image": "postgres:16.11-alpine3.22",
+      "license": "PostgreSQL main project; full container components unaudited",
+      "license_source_url": "https://raw.githubusercontent.com/postgres/postgres/REL_16_11/COPYRIGHT"
+    },
+    {
+      "component": "Valkey",
+      "image": "valkey/valkey:8.1.3-alpine",
+      "license": "BSD-3-Clause main project; full container components unaudited",
+      "license_source_url": "https://raw.githubusercontent.com/valkey-io/valkey/8.1.3/COPYING"
+    },
+    {
+      "component": "Caddy",
+      "image": "caddy:2.10.2-alpine",
+      "license": "Apache-2.0 main project; full container components unaudited",
+      "license_source_url": "https://raw.githubusercontent.com/caddyserver/caddy/v2.10.2/LICENSE"
+    }
+  ],
+  "unverified_distribution_steps": [
+    "Verify exact shipping-artifact component coverage and all runtime base-image/OS licenses; this source collection is not a full image SBOM.",
+    "Preserve separate brand/asset rights and any copied-file copyright/attribution not captured by package root licenses.",
+    "Assess AGPL obligations separately before conveying MinIO images/binaries or deploying modified network-facing MinIO covered software; full image Corresponding Source was not verified."
+  ],
+  "distribution_packaging": {
+    "frontend": "npm run build copies complete legal pack to frontend/dist/legal",
+    "containers": "Dockerfiles copy notices and texts into runtime artifacts",
+    "verified_components": "See publication cleanup build evidence; base-image/OS inventory is separate."
+  }
+}

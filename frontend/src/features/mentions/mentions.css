@@ -1,0 +1,127 @@
+.rti-mention-editor {
+  display: grid;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.rti-mention-editor__surface {
+  background: var(--rti-surface-control);
+  border: 1px solid var(--rti-border-default);
+  border-radius: 0.5rem;
+  color: inherit;
+  min-height: 7rem;
+  padding: 0.75rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.rti-mention-editor__surface:focus {
+  border-color: var(--rti-color-primary);
+  box-shadow: 0 0 0 2px var(--rti-focus-ring);
+  outline: none;
+}
+
+.rti-mention-editor__surface[aria-invalid="true"] {
+  border-color: var(--rti-border-danger);
+}
+
+.rti-mention-editor__surface:empty::before {
+  content: attr(data-placeholder);
+  color: var(--rti-text-tertiary);
+  pointer-events: none;
+}
+
+.rti-mention-editor__token {
+  background: var(--rti-status-info-surface);
+  border: 1px solid var(--rti-color-info);
+  border-radius: 999px;
+  display: inline-block;
+  font-weight: 650;
+  padding: 0 0.25rem;
+  white-space: nowrap;
+}
+
+.rti-mention-editor__picker {
+  background: var(--rti-surface-overlay);
+  border: 1px solid var(--rti-border-default);
+  border-radius: 0.6rem;
+  box-shadow: var(--rti-shadow-floating);
+  max-width: 28rem;
+  padding: 0.75rem;
+  width: min(100%, 28rem);
+}
+
+.rti-mention-picker,
+.rti-mention-picker .rti-option-list [role="group"] {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.rti-mention-picker__control {
+  align-items: center;
+  display: flex;
+  gap: 0.4rem;
+}
+
+.rti-mention-picker__control input {
+  flex: 1;
+}
+
+.rti-mention-picker .rti-option-list {
+  max-height: 18rem;
+  overflow-y: auto;
+}
+
+.rti-mention-picker .rti-option-list [role="group"] > p {
+  color: var(--rti-text-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin: 0.35rem 0 0;
+  text-transform: uppercase;
+}
+
+.rti-mention-picker .rti-option-list [role="option"] {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+  background: transparent;
+  border: 0;
+  border-radius: 0.4rem;
+  color: inherit;
+  cursor: pointer;
+  padding: 0.45rem 0.55rem;
+  text-align: left;
+}
+
+.rti-mention-picker .rti-option-list [role="option"] span {
+  display: grid;
+}
+
+.rti-mention-picker .rti-option-list [role="option"] small {
+  color: var(--rti-text-muted);
+}
+
+.rti-mention-picker .rti-option-list [role="option"][aria-selected="true"],
+.rti-mention-picker .rti-option-list [role="option"][data-active="true"],
+.rti-mention-picker .rti-option-list [role="option"]:focus-visible,
+.rti-mention-picker .rti-option-list [role="option"]:hover {
+  background: var(--rti-surface-hover);
+}
+
+.rti-mention-picker__confirmation-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.rti-mention-picker__empty,
+.rti-field__error {
+  color: var(--rti-text-muted);
+  margin: 0;
+}
+
+.rti-field__error {
+  color: var(--rti-text-danger);
+}

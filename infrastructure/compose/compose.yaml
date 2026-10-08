@@ -1,0 +1,161 @@
+name: rti
+
+services:
+  rarity-api:
+    build:
+      context: ../..
+      dockerfile: infrastructure/compose/api.Dockerfile
+    env_file: ../../.env
+    environment:
+      RARITY_BUILD_REVISION: ${RARITY_BUILD_REVISION:?RARITY_BUILD_REVISION is required}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      valkey:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+    networks: [rti-private, provider-egress]
+    read_only: true
+    tmpfs: [/tmp]
+    security_opt: [no-new-privileges:true]
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 256M
+
+  rarity-admin:
+    profiles: [operator]
+    build:
+      context: ../..
+      dockerfile: infrastructure/compose/api.Dockerfile
+    env_file: ../../.env
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks: [rti-private]
+    entrypoint: ["/rarity-admin"]
+    restart: "no"
+    read_only: true
+    tmpfs: [/tmp]
+    security_opt: [no-new-privileges:true]
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: 128M
+
+  rarity-web:
+    build:
+      context: ../..
+      dockerfile: infrastructure/compose/frontend.Dockerfile
+      args:
+        RARITY_BUILD_REVISION: ${RARITY_BUILD_REVISION:?RARITY_BUILD_REVISION is required}
+    networks: [rti-private]
+    read_only: true
+    tmpfs: [/tmp]
+    security_opt: [no-new-privileges:true]
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: 128M
+
+  postgres:
+    image: postgres:16.11-alpine3.22@sha256:4ddcf75a487ff3793dcb8bd5e085304c4b03b99cd7f5fc93f7961ba19e25af08
+    env_file: ../../.env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:?POSTGRES_DB is required}
+      POSTGRES_USER: ${POSTGRES_USER:?POSTGRES_USER is required}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}
+    volumes:
+      - rti_demo_postgres_data:/var/lib/postgresql/data
+    networks: [rti-private]
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    security_opt: [no-new-privileges:true]
+    deploy:
+      resources:
+        limits:
+          cpus: "0.75"
+          memory: 512M
+
+  valkey:
+    image: valkey/valkey:8.1.3-alpine@sha256:d827e7f7552cdee40cc7482dbae9da020f42bc47669af6f71182a4ef76a22773
+    command: [valkey-server, "--save", "", "--appendonly", "no"]
+    networks: [rti-private]
+    healthcheck:
+      test: [CMD, valkey-cli, ping]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    read_only: true
+    tmpfs: [/tmp]
+    security_opt: [no-new-privileges:true]
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: 128M
+
+  minio:
+    image: minio/minio:RELEASE.2025-04-22T22-12-26Z@sha256:a1ea29fa28355559ef137d71fc570e508a214ec84ff8083e39bc5428980b015e
+    env_file: ../../.env
+    command: [server, /data, "--console-address", ":9001"]
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?MINIO_ROOT_USER is required}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?MINIO_ROOT_PASSWORD is required}
+    volumes:
+      - rti_demo_minio_data:/data
+    networks: [rti-private]
+    healthcheck:
+      test: [CMD, curl, -fsS, "http://localhost:9000/minio/health/live"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    security_opt: [no-new-privileges:true]
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: 256M
+
+  caddy:
+    image: caddy:2.10.2-alpine@sha256:4c6e91c6ed0e2fa03efd5b44747b625fec79bc9cd06ac5235a779726618e530d
+    depends_on:
+      rarity-api:
+        condition: service_started
+      rarity-web:
+        condition: service_started
+    ports:
+      - "127.0.0.1:${RARITY_HTTP_PORT:?RARITY_HTTP_PORT is required}:80"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+    networks: [rti-edge, rti-private]
+    read_only: true
+    tmpfs: [/config, /data, /tmp]
+    security_opt: [no-new-privileges:true]
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: 128M
+
+networks:
+  rti-edge:
+    name: rti_demo_edge
+  rti-private:
+    name: rti_demo_private
+    internal: true
+  provider-egress:
+    name: rti_demo_provider_egress
+
+volumes:
+  rti_demo_minio_data:
+    name: rti_demo_minio_data
+  rti_demo_postgres_data:
+    name: rti_demo_postgres_data

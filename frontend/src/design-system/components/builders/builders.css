@@ -1,0 +1,385 @@
+.rti-builder {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid var(--rti-border-subtle);
+  border-radius: var(--rti-radius-lg);
+  background: var(--rti-surface-inset);
+}
+
+.rti-builder > legend {
+  padding: 0 0.35rem;
+  color: var(--rti-text-primary);
+  font-size: 0.82rem;
+  font-weight: 750;
+}
+
+.rti-builder > p {
+  margin: -0.25rem 0 0.15rem;
+  color: var(--rti-text-tertiary);
+  font-size: 0.71rem;
+}
+
+.rti-builder label {
+  display: grid;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.rti-builder label > span {
+  color: var(--rti-text-secondary);
+  font-size: 0.68rem;
+  font-weight: 650;
+}
+
+.rti-builder input,
+.rti-builder select,
+.rti-builder textarea {
+  width: 100%;
+  min-height: 2.35rem;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--rti-border-strong);
+  border-radius: var(--rti-radius-md);
+  color: var(--rti-text-primary);
+  background: var(--rti-surface-control);
+  box-shadow: inset 0 1px 2px rgb(0 0 0 / 18%);
+}
+
+.rti-builder__rows {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.rti-builder__row {
+  display: grid;
+  grid-template-columns:
+    1.8rem minmax(8rem, 0.8fr) minmax(8rem, 0.65fr) minmax(10rem, 1fr)
+    2rem;
+  align-items: end;
+  gap: 0.55rem;
+  padding: 0.65rem;
+  border: 1px solid var(--rti-border-subtle);
+  border-radius: var(--rti-radius-md);
+  background: var(--rti-surface-panel);
+}
+
+.rti-builder__row > span:first-child,
+.rti-builder__row > svg:first-child {
+  align-self: center;
+  color: var(--rti-text-tertiary);
+  font-size: 0.68rem;
+  text-align: center;
+}
+
+.rti-builder__preserved {
+  display: grid;
+  min-width: 0;
+  grid-column: 2 / 5;
+  gap: 0.2rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--rti-border-subtle);
+  border-radius: var(--rti-radius-md);
+  background: var(--rti-surface-inset);
+}
+
+.rti-builder__preserved span,
+.rti-builder__preserved small {
+  color: var(--rti-text-secondary);
+}
+
+.rti-automation-builder__guided {
+  display: grid;
+  min-width: 0;
+  grid-column: 2 / 5;
+  grid-template-columns: repeat(2, minmax(10rem, 1fr));
+  gap: 0.6rem;
+}
+
+.rti-automation-builder__parameters {
+  display: grid;
+  grid-column: 1 / -1;
+  gap: 0.45rem;
+}
+
+.rti-automation-builder__parameters > div {
+  display: grid;
+  grid-template-columns: minmax(8rem, 0.7fr) minmax(10rem, 1fr) auto;
+  align-items: end;
+  gap: 0.45rem;
+}
+
+.rti-automation-builder__parameters > div > button {
+  width: 2rem;
+  height: 2rem;
+}
+
+.rti-builder__row > button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.rti-builder__row > button,
+.rti-workflow-builder__states > div > button,
+.rti-workflow-builder__transitions > div > button {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border: 0;
+  border-radius: var(--rti-radius-sm);
+  color: var(--rti-text-tertiary);
+  background: transparent;
+}
+
+.rti-builder__row > button:hover,
+.rti-workflow-builder button:hover {
+  color: var(--rti-text-danger);
+  background: var(--rti-status-danger-surface);
+}
+
+.rti-builder__add {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 2.2rem;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0 0.65rem;
+  border: 1px dashed var(--rti-border-strong);
+  border-radius: var(--rti-radius-md);
+  color: var(--rti-text-secondary);
+  background: transparent;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.rti-builder__check {
+  display: flex !important;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 2.35rem;
+  color: var(--rti-text-secondary);
+  font-size: 0.7rem;
+}
+
+.rti-builder__check input {
+  width: 1rem;
+  min-height: auto;
+  box-shadow: none;
+}
+
+.rti-workflow-builder__states {
+  display: grid;
+  grid-auto-columns: minmax(13rem, 1fr);
+  grid-auto-flow: column;
+  gap: 0.65rem;
+  overflow-x: auto;
+}
+
+.rti-workflow-builder__states > div {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.45rem;
+  padding: 0.7rem;
+  border: 1px solid var(--rti-border-subtle);
+  border-top: 2px solid var(--rti-color-primary);
+  border-radius: var(--rti-radius-md);
+  background: var(--rti-surface-panel);
+  box-shadow: var(--rti-elevation-1);
+}
+
+.rti-workflow-builder__states > div > span {
+  display: grid;
+  width: 1.45rem;
+  height: 1.45rem;
+  place-items: center;
+  border-radius: 999px;
+  color: white;
+  background: var(--rti-color-primary);
+  font-size: 0.65rem;
+}
+
+.rti-workflow-builder__states > div label {
+  grid-column: 2;
+}
+
+.rti-workflow-builder__states > div > button {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.rti-workflow-builder__transitions {
+  display: grid;
+  gap: 0.45rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--rti-border-subtle);
+}
+
+.rti-workflow-builder__transitions h3 {
+  margin: 0;
+  font-size: 0.76rem;
+}
+
+.rti-workflow-builder__transitions > div {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.rti-calendar-builder > div {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.rti-calendar-builder > div > div {
+  display: grid;
+  grid-template-columns: minmax(7rem, 0.7fr) minmax(0, 1fr);
+  align-items: end;
+  gap: 0.6rem;
+  padding: 0.45rem 0.55rem;
+  border: 1px solid var(--rti-border-subtle);
+  border-radius: var(--rti-radius-md);
+  opacity: 0.58;
+  background: var(--rti-surface-panel);
+}
+
+.rti-calendar-builder__window {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(7rem, 1fr)) auto;
+  align-items: end;
+  gap: 0.55rem;
+}
+
+.rti-calendar-builder__window > button {
+  width: 2rem;
+  height: 2rem;
+}
+
+.rti-calendar-builder > div > div[data-active="true"] {
+  opacity: 1;
+}
+
+.rti-calendar-builder .rti-builder__check {
+  text-transform: capitalize;
+}
+
+.rti-connection-wizard > ol {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.rti-connection-wizard li {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.6rem;
+  border-bottom: 2px solid var(--rti-border-subtle);
+  color: var(--rti-text-tertiary);
+  font-size: 0.71rem;
+}
+
+.rti-connection-wizard li[aria-current="step"],
+.rti-connection-wizard li[data-complete="true"] {
+  border-color: var(--rti-color-primary);
+  color: var(--rti-text-primary);
+}
+
+.rti-repeatable-builder {
+  display: grid;
+  min-width: 0;
+  grid-column: 1 / -1;
+  gap: var(--rti-space-3);
+  margin: 0;
+  padding: var(--rti-space-4);
+  border: 1px solid var(--rti-border-default);
+  border-radius: var(--rti-radius-panel);
+  background: var(--rti-surface-inset);
+}
+
+.rti-repeatable-builder legend {
+  padding: 0 var(--rti-space-2);
+  color: var(--rti-text-primary);
+  font-size: var(--rti-font-compact);
+  font-weight: 700;
+}
+
+.rti-repeatable-builder__rows {
+  display: grid;
+  gap: var(--rti-space-2);
+}
+
+.rti-repeatable-builder__row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) minmax(0, 1fr) auto;
+  align-items: end;
+  gap: var(--rti-space-2);
+  padding: var(--rti-space-3);
+  border: 1px solid var(--rti-border-subtle);
+  border-radius: var(--rti-radius-control);
+  background: var(--rti-surface-panel);
+}
+
+.rti-text-list-builder .rti-repeatable-builder__row {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.rti-repeatable-builder__row > svg {
+  align-self: center;
+  color: var(--rti-text-faint);
+}
+
+.rti-repeatable-builder label {
+  display: grid;
+  min-width: 0;
+  gap: var(--rti-space-1);
+}
+
+.rti-repeatable-builder input {
+  width: 100%;
+}
+
+.rti-repeatable-builder button {
+  display: inline-flex;
+  width: fit-content;
+  min-height: var(--rti-control-height-compact);
+  align-items: center;
+  justify-content: center;
+  gap: var(--rti-space-2);
+}
+
+@media (max-width: 820px) {
+  .rti-builder__row {
+    grid-template-columns: 1.5rem 1fr 2rem;
+  }
+
+  .rti-builder__row label {
+    grid-column: 2;
+  }
+
+  .rti-builder__row > button {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .rti-builder__preserved,
+  .rti-automation-builder__guided {
+    grid-column: 2;
+    grid-template-columns: 1fr;
+  }
+
+  .rti-repeatable-builder__row {
+    grid-template-columns: 1fr auto;
+  }
+
+  .rti-repeatable-builder__row > svg {
+    display: none;
+  }
+
+  .rti-key-value-builder .rti-repeatable-builder__row label {
+    grid-column: 1 / -1;
+  }
+}

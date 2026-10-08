@@ -1,0 +1,15 @@
+:80 {
+  encode zstd gzip
+
+  @internal path /metrics
+  respond @internal 404
+
+  @api path /healthz /readyz /v1/* /api/v1/* /auth/*
+  handle @api {
+    reverse_proxy rarity-api:8080
+  }
+
+  handle {
+    reverse_proxy rarity-web:8080
+  }
+}

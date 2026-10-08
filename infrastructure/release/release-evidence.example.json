@@ -1,0 +1,41 @@
+{
+  "release": "v1.0.0-rc.1",
+  "revision": "replace-with-full-immutable-revision",
+  "environment": "pilot-acceptance",
+  "artifacts": [
+    {
+      "component": "api",
+      "image": "ghcr.io/rarity-ticket-intelligence/rarity-api",
+      "digest": "sha256:replace-with-64-lowercase-hex-characters",
+      "signature_identity": "https://github.com/rarity-ticket-intelligence/rarity/.github/workflows/publish.yml@refs/heads/main",
+      "signature_bundle": "api-signature.json",
+      "sbom": "api-sbom.spdx.json",
+      "provenance": "api-provenance.json"
+    },
+    {
+      "component": "frontend",
+      "image": "ghcr.io/rarity-ticket-intelligence/rarity-frontend",
+      "digest": "sha256:replace-with-64-lowercase-hex-characters",
+      "signature_identity": "https://github.com/rarity-ticket-intelligence/rarity/.github/workflows/publish.yml@refs/heads/main",
+      "signature_bundle": "frontend-signature.json",
+      "sbom": "frontend-sbom.spdx.json",
+      "provenance": "frontend-provenance.json"
+    }
+  ],
+  "gates": [
+    {"id":"security_scan","status":"pending","revision":"replace-with-full-immutable-revision","artifact":"evidence/security/scan-manifest.json","observed_at":"2026-07-30T12:00:00Z"},
+    {"id":"dependency_scan","status":"pending","revision":"replace-with-full-immutable-revision","artifact":"evidence/security/dependencies.json","observed_at":"2026-07-30T12:00:00Z"},
+    {"id":"client_isolation","status":"pending","revision":"replace-with-full-immutable-revision","artifact":"evidence/security/client-isolation.json","observed_at":"2026-07-30T12:00:00Z"},
+    {"id":"accessibility_automated","status":"pending","revision":"replace-with-full-immutable-revision","artifact":"evidence/accessibility/automated.json","observed_at":"2026-07-30T12:00:00Z"},
+    {"id":"accessibility_manual","status":"pending","revision":"replace-with-full-immutable-revision","artifact":"evidence/accessibility/manual.md","observed_at":"2026-07-30T12:00:00Z"},
+    {"id":"backup","status":"pending","revision":"replace-with-full-immutable-revision","artifact":"evidence/recovery/backup.json","observed_at":"2026-07-30T12:00:00Z"},
+    {"id":"restore_dr","status":"pending","revision":"replace-with-full-immutable-revision","artifact":"evidence/recovery/restore-dr.json","observed_at":"2026-07-30T12:00:00Z"},
+    {"id":"ha_failover","status":"pending","revision":"replace-with-full-immutable-revision","artifact":"evidence/ha/failover.json","observed_at":"2026-07-30T12:00:00Z"},
+    {"id":"upgrade_rollback","status":"pending","revision":"replace-with-full-immutable-revision","artifact":"evidence/release/upgrade-rollback.json","observed_at":"2026-07-30T12:00:00Z"},
+    {"id":"capacity","status":"pending","revision":"replace-with-full-immutable-revision","artifact":"evidence/performance/capacity.json","observed_at":"2026-07-30T12:00:00Z"},
+    {"id":"observability_alerting","status":"pending","revision":"replace-with-full-immutable-revision","artifact":"evidence/operations/observability-alerting.json","observed_at":"2026-07-30T12:00:00Z"},
+    {"id":"migration","status":"pending","revision":"replace-with-full-immutable-revision","artifact":"evidence/database/migration.json","observed_at":"2026-07-30T12:00:00Z"},
+    {"id":"artifact_provenance","status":"pending","revision":"replace-with-full-immutable-revision","artifact":"artifact-provenance.json","observed_at":"2026-07-30T12:00:00Z"},
+    {"id":"runbook_review","status":"pending","revision":"replace-with-full-immutable-revision","artifact":"evidence/release/runbook-review.md","observed_at":"2026-07-30T12:00:00Z"}
+  ]
+}

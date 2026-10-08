@@ -1,0 +1,115 @@
+.rti-popover {
+  position: relative;
+  display: inline-flex;
+}
+
+.rti-popover__surface {
+  position: absolute;
+  z-index: var(--rti-z-popover);
+  top: calc(100% + 0.45rem);
+  min-width: 14rem;
+  max-width: min(22rem, calc(100vw - 2rem));
+  overflow: hidden;
+  border: 1px solid var(--rti-border-strong);
+  border-radius: var(--rti-radius-lg);
+  background: var(--rti-surface-overlay);
+  box-shadow: var(--rti-elevation-3);
+  animation: rti-overlay-in var(--rti-motion-fast) var(--rti-ease-standard);
+}
+
+.rti-popover__surface[data-align="start"] {
+  left: 0;
+}
+
+.rti-popover__surface[data-align="end"] {
+  right: 0;
+}
+
+.rti-menu {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.35rem;
+}
+
+.rti-menu > button {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.65rem;
+  width: 100%;
+  padding: 0.65rem 0.7rem;
+  border: 0;
+  border-radius: var(--rti-radius-md);
+  color: var(--rti-text-primary);
+  background: transparent;
+  text-align: left;
+}
+
+.rti-menu > button:hover,
+.rti-menu > button:focus-visible {
+  background: var(--rti-surface-hover);
+}
+
+.rti-menu > button[data-danger="true"] {
+  color: var(--rti-text-danger);
+}
+
+.rti-menu button > span {
+  display: grid;
+  gap: 0.12rem;
+}
+
+.rti-menu strong {
+  font-size: 0.78rem;
+}
+
+.rti-menu small {
+  color: var(--rti-text-tertiary);
+  font-size: 0.68rem;
+}
+
+.rti-tooltip {
+  position: relative;
+  display: inline-flex;
+}
+
+.rti-tooltip > [role="tooltip"] {
+  position: absolute;
+  z-index: var(--rti-z-tooltip);
+  bottom: calc(100% + 0.45rem);
+  left: 50%;
+  width: max-content;
+  max-width: 16rem;
+  padding: 0.4rem 0.55rem;
+  transform: translate(-50%, 4px);
+  border: 1px solid var(--rti-border-strong);
+  border-radius: var(--rti-radius-sm);
+  opacity: 0;
+  color: var(--rti-text-primary);
+  background: var(--rti-surface-overlay);
+  box-shadow: var(--rti-elevation-2);
+  font-size: 0.68rem;
+  pointer-events: none;
+  transition:
+    opacity var(--rti-motion-fast) var(--rti-ease-standard),
+    transform var(--rti-motion-fast) var(--rti-ease-standard);
+}
+
+.rti-tooltip:has(> :first-child:hover) > [role="tooltip"],
+.rti-tooltip:has(> :first-child:focus-visible) > [role="tooltip"] {
+  transform: translate(-50%, 0);
+  opacity: 1;
+}
+
+@keyframes rti-overlay-in {
+  from {
+    transform: translateY(-4px) scale(0.985);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rti-popover__surface {
+    animation: none;
+  }
+}

@@ -1,0 +1,196 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source:
+    name: Source, unit, and security gates
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Check out reviewed source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+
+      - name: Set up Go
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6
+        with:
+          go-version-file: go.mod
+          cache: true
+
+      - name: Set up Node
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Verify Go formatting and modules
+        shell: bash
+        run: |
+          test -z "$(gofmt -l backend infrastructure tests)"
+          go mod verify
+          git diff --check
+
+      - name: Run Go tests with race detection
+        run: go test -race ./backend/...
+
+      - name: Run portable integration contracts
+        run: go test ./tests/... -count=1
+
+      - name: Validate infrastructure and Compose contracts
+        run: |
+          scripts/generate-local-env.sh
+          trap 'rm -f .env' EXIT
+          go test ./infrastructure/... -count=1
+
+      - name: Run Go static analysis
+        run: go vet ./backend/... ./tests/...
+
+      - name: Install frontend dependencies
+        run: npm ci
+        working-directory: frontend
+
+      - name: Audit frontend dependencies
+        run: npm audit --audit-level=high
+        working-directory: frontend
+
+      - name: Verify frontend formatting
+        run: npx prettier --check "src/**/*.{ts,tsx,css}"
+        working-directory: frontend
+
+      - name: Run frontend component and accessibility tests
+        run: npm test -- --run
+        working-directory: frontend
+
+      - name: Build frontend
+        run: npm run build
+        working-directory: frontend
+
+      - name: Validate documentation contracts
+        run: |
+          node scripts/validate-markdown-links.mjs
+          node --test scripts/validate-release-acceptance-docs.test.mjs
+          node scripts/validate-docs.mjs
+          node scripts/validate-integration-automation-docs.mjs
+
+      - name: Build candidate container images without publishing
+        run: |
+          docker build --file infrastructure/compose/api.Dockerfile --tag rarity-api:ci .
+          docker build --file infrastructure/compose/frontend.Dockerfile \
+            --build-arg "RARITY_BUILD_REVISION=${GITHUB_SHA}" \
+            --tag rarity-frontend:ci .
+
+      - name: Scan source, dependencies, secrets, licenses, and configuration
+        uses: aquasecurity/trivy-action@a9c7b0f06e461e9d4b4d1711f154ee024b8d7ab8 # v0.36.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          scanners: vuln,secret,misconfig,license
+          severity: HIGH,CRITICAL
+          ignore-unfixed: true
+          exit-code: "1"
+
+  postgres:
+    name: PostgreSQL migration and transaction gates
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:17-alpine@sha256:742f40ea20b9ff2ff31db5458d127452988a2164df9e17441e191f3b72252193
+        env:
+          POSTGRES_DB: rarity_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d rarity_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      TEST_DATABASE_URL: postgres://postgres:postgres@127.0.0.1:5432/rarity_test?sslmode=disable
+    steps:
+      - name: Check out reviewed source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+
+      - name: Set up Go
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6
+        with:
+          go-version-file: go.mod
+          cache: true
+
+      - name: Run all backend and integration contracts against PostgreSQL
+        run: scripts/run-postgres-acceptance.sh
+
+  browser:
+    name: Browser journeys
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:17-alpine@sha256:742f40ea20b9ff2ff31db5458d127452988a2164df9e17441e191f3b72252193
+        env:
+          POSTGRES_DB: rarity_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d rarity_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      TEST_DATABASE_URL: postgres://postgres:postgres@127.0.0.1:5432/rarity_test?sslmode=disable
+    steps:
+      - name: Check out reviewed source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+
+      - name: Set up Go
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6
+        with:
+          go-version-file: go.mod
+          cache: true
+
+      - name: Set up Node
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install frontend dependencies and Chromium
+        working-directory: frontend
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+
+      - name: Run browser journeys
+        working-directory: frontend
+        run: npx playwright test
+
+      - name: Retain failed browser traces
+        if: failure()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: playwright-traces-${{ github.run_id }}
+          path: frontend/test-results
+          if-no-files-found: ignore
+          retention-days: 14

@@ -1,0 +1,125 @@
+.rti-scoped-action {
+  display: grid;
+  justify-items: start;
+  gap: var(--rti-space-1);
+}
+
+.rti-scoped-action__scope,
+.rti-scoped-action__reason,
+.rti-versioned-editor__version {
+  margin: 0;
+  color: var(--rti-text-muted);
+  font-size: var(--rti-font-metadata);
+}
+
+.rti-scoped-action__scope {
+  font-weight: 650;
+}
+
+.rti-scoped-action__reason {
+  color: var(--rti-text-danger);
+}
+
+.rti-reason-form {
+  display: grid;
+  gap: var(--rti-space-4);
+}
+
+.rti-versioned-editor {
+  display: grid;
+  gap: var(--rti-space-3);
+}
+
+.rti-versioned-editor__version {
+  width: fit-content;
+  padding: var(--rti-space-1) var(--rti-space-2);
+  background: var(--rti-surface-inset);
+  border-radius: var(--rti-radius-small);
+  font-weight: 700;
+}
+
+.rti-job,
+.rti-approval {
+  display: grid;
+  gap: var(--rti-space-3);
+  padding: var(--rti-space-4);
+  background: var(--rti-surface-panel);
+  border: 1px solid var(--rti-border-default);
+  border-radius: var(--rti-radius-panel);
+}
+
+.rti-job > header,
+.rti-job > header > div,
+.rti-approval > header,
+.rti-connection__badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--rti-space-2);
+}
+
+.rti-job h3 {
+  margin: 0;
+  font-size: var(--rti-font-section-title);
+}
+
+.rti-job__progress {
+  display: grid;
+  gap: var(--rti-space-1);
+  color: var(--rti-text-muted);
+  font-size: var(--rti-font-metadata);
+}
+
+.rti-job__progress progress {
+  width: 100%;
+}
+
+.rti-job__metadata,
+.rti-connection dl,
+.rti-approval dl {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: var(--rti-space-1) var(--rti-space-3);
+  margin: 0;
+  font-size: var(--rti-font-compact);
+}
+
+.rti-job__metadata dt,
+.rti-connection dt,
+.rti-approval dt,
+.rti-audit-evidence dt {
+  color: var(--rti-text-muted);
+}
+
+.rti-job__metadata dd,
+.rti-connection dd,
+.rti-approval dd,
+.rti-audit-evidence dd {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.rti-connection {
+  display: grid;
+  gap: var(--rti-space-3);
+}
+
+.rti-connection__badges {
+  justify-content: flex-start;
+}
+
+.rti-audit-evidence {
+  display: grid;
+  gap: var(--rti-space-2);
+  margin: 0;
+}
+
+.rti-audit-evidence > div {
+  display: grid;
+  grid-template-columns: minmax(8rem, 0.4fr) minmax(0, 1fr);
+  gap: var(--rti-space-3);
+  padding-bottom: var(--rti-space-2);
+  border-bottom: 1px solid var(--rti-border-subtle);
+}

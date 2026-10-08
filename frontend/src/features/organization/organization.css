@@ -1,0 +1,107 @@
+.resource-catalog__header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--rti-space-5);
+  margin-bottom: var(--rti-space-4);
+}
+
+.resource-catalog__header h2,
+.resource-catalog__header p {
+  margin: 0;
+}
+
+.resource-catalog__header p {
+  margin-top: var(--rti-space-1);
+  color: var(--rti-text-muted);
+  font-size: var(--rti-font-compact);
+}
+
+.resource-catalog__header .rti-search-input {
+  width: min(22rem, 100%);
+}
+
+.resource-kind-switcher {
+  display: flex;
+  gap: var(--rti-space-2);
+  margin-bottom: var(--rti-space-4);
+  overflow-x: auto;
+  padding-bottom: var(--rti-space-1);
+}
+
+.resource-kind-switcher button {
+  display: inline-flex;
+  min-height: var(--rti-control-height-compact);
+  flex: 0 0 auto;
+  align-items: center;
+  gap: var(--rti-space-2);
+  padding: 0 var(--rti-space-3);
+  color: var(--rti-text-secondary);
+  background: var(--rti-surface-control);
+  border: 1px solid var(--rti-border-default);
+  border-radius: 999px;
+}
+
+.resource-kind-switcher button[aria-pressed="true"] {
+  color: var(--rti-text-primary);
+  background: var(--rti-surface-selected);
+  border-color: var(--rti-action-primary);
+}
+
+.resource-kind-switcher button span {
+  display: inline-grid;
+  min-width: 1.25rem;
+  min-height: 1.25rem;
+  padding: 0 0.3rem;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--rti-surface-raised);
+  font-size: var(--rti-font-metadata);
+}
+
+.resource-catalog__header + .resource-kind-switcher + p {
+  color: var(--rti-text-muted);
+}
+
+.operations-health .health-grid article > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--rti-space-3);
+}
+
+.operations-health .health-grid > article {
+  border-color: var(--rti-border-subtle);
+  background: var(--rti-surface-panel);
+  box-shadow: var(--rti-elevation-1);
+  transition:
+    border-color var(--rti-motion-fast),
+    transform var(--rti-motion-fast);
+}
+
+.operations-health .health-grid > article:hover {
+  border-color: var(--rti-border-strong);
+  transform: translateY(-1px);
+}
+
+.operations-health .health-grid ul {
+  display: grid;
+  gap: var(--rti-space-2);
+  margin-top: var(--rti-space-3);
+}
+
+.operations-health .health-grid li {
+  padding: var(--rti-space-2) 0;
+  border-top: 1px solid var(--rti-border-subtle);
+}
+
+@media (max-width: 760px) {
+  .resource-catalog__header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .resource-catalog__header .rti-search-input {
+    width: 100%;
+  }
+}

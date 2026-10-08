@@ -1,0 +1,98 @@
+.rti-button {
+  display: inline-flex;
+  min-height: var(--rti-density-control-height);
+  align-items: center;
+  justify-content: center;
+  gap: var(--rti-space-2);
+  padding: 0 var(--rti-space-3);
+  color: var(--rti-text-primary);
+  background: var(--rti-action-secondary);
+  border: 1px solid var(--rti-border-strong);
+  border-radius: var(--rti-radius-control);
+  cursor: pointer;
+  font-size: var(--rti-font-compact);
+  font-weight: 600;
+  line-height: 1.2;
+  transition:
+    background var(--rti-motion-fast),
+    border-color var(--rti-motion-fast);
+}
+
+.rti-button:hover:not(:disabled) {
+  background: var(--rti-action-secondary-hover);
+}
+
+.rti-button[data-intent="primary"] {
+  color: var(--rti-text-inverse);
+  background: var(--rti-action-primary);
+  border-color: var(--rti-action-primary);
+  box-shadow: 0 5px 16px rgb(229 72 77 / 12%);
+}
+
+.rti-button[data-intent="primary"]:hover:not(:disabled) {
+  background: var(--rti-action-primary-hover);
+}
+
+.rti-button[data-intent="tertiary"] {
+  background: transparent;
+  border-color: transparent;
+}
+
+.rti-button[data-intent="danger"] {
+  color: var(--rti-text-inverse);
+  background: var(--rti-action-danger);
+  border-color: var(--rti-action-danger);
+}
+
+.rti-button[data-intent="link"] {
+  min-height: auto;
+  padding: 0;
+  color: var(--rti-text-link);
+  background: transparent;
+  border: 0;
+}
+
+.rti-button[data-size="compact"] {
+  min-height: var(--rti-control-height-compact);
+  padding: 0 var(--rti-space-2);
+}
+
+.rti-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.52;
+}
+
+.rti-button svg {
+  flex: 0 0 auto;
+}
+
+.rti-button__spinner {
+  animation: rti-spin 900ms linear infinite;
+}
+
+.rti-icon-button {
+  width: var(--rti-density-control-height);
+  padding: 0;
+}
+
+.rti-icon-button > span {
+  display: inline-flex;
+}
+
+.rti-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rti-space-2);
+}
+
+@keyframes rti-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rti-button__spinner {
+    animation: none;
+  }
+}

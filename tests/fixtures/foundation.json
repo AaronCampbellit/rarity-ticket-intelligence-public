@@ -1,0 +1,19 @@
+{
+  "msp": {
+    "id": "msp-demo",
+    "name": "Rarity Demo MSP"
+  },
+  "clients": [
+    {
+      "id": "client-alpha",
+      "name": "Alpha",
+      "collidingExternalID": "SITE-100"
+    },
+    {
+      "id": "client-bravo",
+      "name": "Bravo",
+      "collidingExternalID": "SITE-100"
+    }
+  ],
+  "integrationCredentials": []
+}

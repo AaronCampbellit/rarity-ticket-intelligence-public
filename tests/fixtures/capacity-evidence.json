@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "revision": "synthetic-capacity-fixture",
+  "concurrent_technicians": 50,
+  "client_organizations": 1000,
+  "peak_day_new_tickets": 5000,
+  "burst_sent": 1000,
+  "burst_durable": 1000,
+  "availability_percent": 99.95,
+  "storage_headroom_percent": 35,
+  "read_latency_ms": [300, 350, 400, 450, 500],
+  "mutation_latency_ms": [600, 700, 800, 900, 1000],
+  "dashboard_latency_ms": [1000, 1200, 1400, 1600, 1800],
+  "search_latency_ms": [800, 900, 1000, 1100, 1200],
+  "api_acknowledgement_ms": [250, 300, 350, 400, 450],
+  "event_processing_seconds": [20, 30, 40, 50, 60],
+  "search_indexing_seconds": [20, 30, 40, 50, 60],
+  "graph_processing_seconds": [20, 30, 40, 50, 60],
+  "datto_freshness_seconds": [600, 660, 720, 780, 840]
+}

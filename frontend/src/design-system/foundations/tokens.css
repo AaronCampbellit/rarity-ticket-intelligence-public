@@ -1,0 +1,191 @@
+:root {
+  color-scheme: dark;
+
+  --rti-surface-canvas: #141619;
+  --rti-surface-navigation: #181b20;
+  --rti-surface-header: #181b20;
+  --rti-surface-panel: #1b1e23;
+  --rti-surface-table-header: #20242a;
+  --rti-surface-control: #23272e;
+  --rti-surface-inset: #171a1f;
+  --rti-surface-overlay: #24282f;
+  --rti-surface-navigation-hover: #2b2b32;
+  --rti-surface-hover-strong: #33333b;
+  --rti-surface-avatar: #3a3a42;
+  --rti-surface-raised: #232329;
+  --rti-surface-selected: rgb(229 72 77 / 13%);
+  --rti-surface-scrim: rgb(7 7 10 / 68%);
+  --rti-surface-glass: rgb(25 25 29 / 94%);
+
+  --rti-text-primary: #e9edf2;
+  --rti-text-strong: #ececf0;
+  --rti-text-secondary: #a8b0bc;
+  --rti-text-muted: #9ba5b2;
+  --rti-text-faint: #a0a0aa;
+  --rti-text-inverse: #ffffff;
+  --rti-text-link: #fbabad;
+  --rti-text-danger: #f7868a;
+
+  --rti-border-subtle: rgb(255 255 255 / 5%);
+  --rti-border-default: rgb(255 255 255 / 8%);
+  --rti-border-strong: rgb(255 255 255 / 14%);
+  --rti-border-danger: #e5484d;
+
+  --rti-action-primary: #ce2c31;
+  --rti-action-primary-hover: #d4383d;
+  --rti-action-secondary: #24282f;
+  --rti-action-secondary-hover: #2b2b32;
+  --rti-action-danger: #ce2c31;
+  --rti-action-disabled: #5a5a64;
+
+  --rti-status-neutral: #a2a2ab;
+  --rti-status-info: #79a8ff;
+  --rti-status-success: #56d364;
+  --rti-status-warning: #e3b341;
+  --rti-status-danger: #f7868a;
+  --rti-status-info-surface: rgb(91 141 239 / 15%);
+  --rti-status-success-surface: rgb(63 185 80 / 13%);
+  --rti-status-warning-surface: rgb(210 161 6 / 15%);
+  --rti-status-danger-surface: rgb(229 72 77 / 15%);
+
+  --rti-font-family:
+    "Segoe UI Variable Text", "Segoe UI", ui-sans-serif, system-ui,
+    -apple-system, BlinkMacSystemFont, sans-serif;
+  --rti-font-page-title: 1.625rem;
+  --rti-font-section-title: 1.125rem;
+  --rti-font-body: 0.875rem;
+  --rti-font-compact: 0.8125rem;
+  --rti-font-metadata: 0.75rem;
+  --rti-font-code:
+    "Cascadia Code", "SF Mono", "Segoe UI Mono", ui-monospace, Menlo, Consolas,
+    monospace;
+
+  --rti-space-1: 0.25rem;
+  --rti-space-2: 0.5rem;
+  --rti-space-3: 0.75rem;
+  --rti-space-4: 1rem;
+  --rti-space-5: 1.5rem;
+  --rti-space-6: 2rem;
+  --rti-space-7: 3rem;
+  --rti-space-8: 4rem;
+
+  --rti-control-height-compact: 2rem;
+  --rti-control-height-default: 2.5rem;
+  --rti-radius-small: 0.3125rem;
+  --rti-radius-control: 0.5rem;
+  --rti-radius-panel: 0.75rem;
+  --rti-content-narrow: 45rem;
+  --rti-content-default: 75rem;
+  --rti-content-wide: 90rem;
+
+  --rti-focus-ring: rgb(229 72 77 / 32%);
+  --rti-shadow-inner: inset 0 1px 0 rgb(255 255 255 / 4%);
+  --rti-shadow-raised:
+    0 1px 0 rgb(255 255 255 / 3%), 0 8px 20px rgb(0 0 0 / 16%);
+  --rti-shadow-floating:
+    0 1px 0 rgb(255 255 255 / 4%), 0 16px 34px rgb(0 0 0 / 32%);
+  --rti-shadow-overlay: 0 24px 70px rgb(0 0 0 / 42%);
+  --rti-motion-fast: 120ms;
+  --rti-motion-standard: 180ms;
+  --rti-motion-slow: 260ms;
+  --rti-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+
+  --rti-navigation-width: 13rem;
+  --rti-navigation-width-collapsed: 4.25rem;
+  --rti-context-width: 12.5rem;
+  --rti-inspector-width: 22rem;
+  --rti-preview-width: 25rem;
+  --rti-ai-width: 23rem;
+  --rti-topbar-height: 4rem;
+  --rti-z-sticky: 20;
+  --rti-z-popover: 50;
+  --rti-z-overlay: 70;
+  --rti-z-toast: 90;
+
+  /* Component-facing semantic aliases. Keep these names stable so new
+     patterns never silently fall back when a token is renamed. */
+  --rti-surface-hover: var(--rti-surface-navigation-hover);
+  --rti-text-tertiary: var(--rti-text-muted);
+  --rti-color-primary: var(--rti-action-primary);
+  --rti-color-danger: var(--rti-status-danger);
+  --rti-color-danger-text: var(--rti-text-danger);
+  --rti-color-info: var(--rti-status-info);
+  --rti-color-info-text: #b8d0ff;
+  --rti-color-success: var(--rti-status-success);
+  --rti-color-success-text: #a8e6b0;
+  --rti-color-warning: var(--rti-status-warning);
+  --rti-color-warning-text: #f1d58a;
+  --rti-control-font-size: var(--rti-font-body);
+  --rti-radius-sm: var(--rti-radius-small);
+  --rti-radius-md: var(--rti-radius-control);
+  --rti-radius-lg: var(--rti-radius-panel);
+  --rti-radius-xl: 1rem;
+  --rti-elevation-1: var(--rti-shadow-inner);
+  --rti-elevation-2: var(--rti-shadow-raised);
+  --rti-elevation-3: var(--rti-shadow-floating);
+  --rti-elevation-4: var(--rti-shadow-overlay);
+  --rti-ai-rail-width: var(--rti-ai-width);
+  --rti-z-modal: var(--rti-z-overlay);
+  --rti-z-tooltip: var(--rti-z-toast);
+
+  --rti-density-control-height: var(--rti-control-height-default);
+  --rti-density-gap: var(--rti-space-3);
+
+  /* Transitional aliases keep feature-family layouts on one semantic palette. */
+  --rarity-ink: var(--rti-text-primary);
+  --rarity-muted: var(--rti-text-secondary);
+  --rarity-line: var(--rti-border-default);
+  --rarity-line-strong: var(--rti-border-strong);
+  --rarity-surface: var(--rti-surface-panel);
+  --rarity-soft: var(--rti-surface-inset);
+  --rarity-red: var(--rti-action-primary);
+  --rarity-red-dark: var(--rti-action-primary-hover);
+  --rarity-red-soft: var(--rti-status-danger-surface);
+  --rarity-amber: var(--rti-status-warning);
+  --rarity-amber-soft: var(--rti-status-warning-surface);
+
+  --project-ink: var(--rti-text-primary);
+  --project-muted: var(--rti-text-secondary);
+  --project-line: var(--rti-border-default);
+  --project-line-strong: var(--rti-border-strong);
+  --project-soft: var(--rti-surface-inset);
+  --project-red: var(--rti-action-primary);
+  --project-red-dark: var(--rti-action-primary-hover);
+  --project-red-soft: var(--rti-status-danger-surface);
+  --project-green: var(--rti-status-success);
+  --project-green-soft: var(--rti-status-success-surface);
+  --project-amber: var(--rti-status-warning);
+  --project-amber-soft: var(--rti-status-warning-surface);
+}
+
+[data-density="compact"] {
+  --rti-density-control-height: var(--rti-control-height-compact);
+  --rti-density-gap: var(--rti-space-2);
+}
+
+[data-density="comfortable"] {
+  --rti-density-control-height: var(--rti-control-height-default);
+  --rti-density-gap: var(--rti-space-4);
+}
+
+[data-density="adaptive"][data-page-family="worklist"],
+[data-density="adaptive"][data-page-family="operations"] {
+  --rti-density-control-height: var(--rti-control-height-compact);
+  --rti-density-gap: var(--rti-space-2);
+}
+
+[data-density="adaptive"][data-page-family="home"],
+[data-density="adaptive"][data-page-family="record"],
+[data-density="adaptive"][data-page-family="settings"],
+[data-density="adaptive"][data-page-family="public"],
+[data-density="adaptive"][data-page-family="catalog"] {
+  --rti-density-control-height: var(--rti-control-height-default);
+  --rti-density-gap: var(--rti-space-4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --rti-motion-fast: 0ms;
+    --rti-motion-standard: 0ms;
+  }
+}

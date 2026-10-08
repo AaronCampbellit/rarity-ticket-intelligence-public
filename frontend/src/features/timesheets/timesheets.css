@@ -1,0 +1,86 @@
+.timesheet-page {
+  display: grid;
+  gap: 18px;
+}
+
+.timesheet-review-filter,
+.timesheet-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--rti-border-default);
+  border-radius: 10px;
+  background: var(--rti-surface-panel);
+}
+
+.timesheet-review-filter label,
+.timesheet-summary div,
+.timesheet-table td:nth-child(2) {
+  display: grid;
+  gap: 4px;
+}
+
+.timesheet-summary span,
+.timesheet-table small {
+  color: var(--rti-text-secondary);
+}
+
+.timesheet-amendment {
+  display: grid;
+  gap: 2px;
+  margin-top: 6px;
+  padding: 8px;
+  border-left: 3px solid var(--rti-border-strong);
+  background: var(--rti-surface-inset);
+}
+
+.timesheet-day-totals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.timesheet-day-totals span {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--rti-surface-panel);
+  border: 1px solid var(--rti-border-default);
+}
+
+.timesheet-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.timesheet-table th,
+.timesheet-table td {
+  padding: 12px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--rti-border-default);
+}
+
+.timesheet-actions,
+.timesheet-entry-form,
+.timesheet-review-form {
+  display: grid;
+  gap: 8px;
+}
+
+.timesheet-entry-form {
+  min-width: 260px;
+}
+
+.timesheet-entry-form label,
+.timesheet-review-form label {
+  display: grid;
+  gap: 4px;
+}
+
+.timesheet-entry-form .timesheet-check {
+  display: flex;
+  align-items: center;
+}

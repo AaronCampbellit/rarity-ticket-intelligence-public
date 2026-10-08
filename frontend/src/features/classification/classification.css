@@ -1,0 +1,177 @@
+.classification-settings-page {
+  min-width: 0;
+}
+.classification-insights-page {
+  min-width: 0;
+}
+.classification-insights-filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 0.75rem;
+  align-items: end;
+  padding: 1rem;
+  border: 1px solid var(--rti-border-default);
+  border-radius: 0.75rem;
+  background: var(--rti-surface-panel);
+}
+.classification-insights-filters label {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 600;
+}
+.classification-insights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 1rem;
+  margin-block-start: 1rem;
+}
+.classification-insights-grid h2 {
+  text-transform: capitalize;
+}
+.classification-insights-grid li {
+  margin-block: 0.5rem;
+}
+.classification-projection-watermark {
+  color: var(--rti-text-muted);
+}
+.classification-tabs,
+.classification-toolbar,
+.classification-card-actions,
+.classification-form > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+.classification-tabs {
+  border-bottom: 1px solid var(--rti-border-default);
+  margin-block: 1rem;
+}
+.classification-tabs [role="tab"] {
+  background: none;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  padding: 0.75rem 1rem;
+  color: inherit;
+}
+.classification-tabs [aria-selected="true"] {
+  border-bottom-color: var(--rti-action-primary);
+  font-weight: 700;
+}
+.classification-panel {
+  min-width: 0;
+}
+.classification-toolbar {
+  justify-content: space-between;
+  margin-block-end: 1rem;
+}
+.classification-toolbar input {
+  min-width: min(22rem, 100%);
+}
+.classification-tag-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 1rem;
+}
+.classification-tag-card,
+.classification-health-card,
+.classification-table > article,
+.classification-form,
+.classification-dialog {
+  border: 1px solid var(--rti-border-default);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  background: var(--rti-surface-panel);
+  min-width: 0;
+}
+.classification-tag-card {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+.classification-card-actions {
+  align-content: start;
+  justify-content: end;
+}
+.classification-form {
+  display: grid;
+  gap: 0.75rem;
+  margin-block: 1rem;
+  max-width: 42rem;
+}
+.classification-form label,
+.classification-dialog label {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 600;
+}
+.classification-form input,
+.classification-form select,
+.classification-dialog select,
+.classification-dialog textarea {
+  max-width: 100%;
+  min-width: 0;
+}
+.classification-table {
+  display: grid;
+  gap: 0.75rem;
+}
+.classification-table > article {
+  display: grid;
+  grid-template-columns: minmax(9rem, 1fr) auto minmax(14rem, 2fr);
+  gap: 0.75rem;
+}
+.classification-dialog {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+.classification-impact {
+  display: grid;
+  gap: 0.5rem;
+}
+.classification-impact p {
+  margin: 0;
+}
+.rti-object-tag-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+}
+.rti-classification-fallback {
+  color: var(--rti-status-warning);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.rti-object-tag-editor__disclosure {
+  margin-block: 0.75rem;
+}
+.rti-object-tag-editor__disclosure > summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+@media (max-width: 30rem) {
+  .classification-toolbar,
+  .classification-tag-card {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .classification-toolbar input {
+    width: 100%;
+    min-width: 0;
+  }
+  .classification-card-actions > * {
+    flex: 1 1 auto;
+  }
+  .classification-table > article {
+    grid-template-columns: 1fr;
+  }
+  .classification-dialog {
+    min-width: 0;
+  }
+}
+
+.rti-object-tag-summary .rti-tag-chip__source {
+  display: none;
+}

@@ -1,0 +1,6 @@
+services:
+  caddy:
+    ports: !override
+      - "127.0.0.1:${RARITY_DEMO_HTTP_PORT:?RARITY_DEMO_HTTP_PORT is required}:80"
+    volumes: !override
+      - ./Caddyfile.tunnel:/etc/caddy/Caddyfile:ro

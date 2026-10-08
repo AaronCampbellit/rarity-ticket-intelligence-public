@@ -1,0 +1,113 @@
+x-pilot-service: &pilot-service
+  restart: unless-stopped
+  logging:
+    driver: local
+    options:
+      max-size: "20m"
+      max-file: "5"
+
+services:
+  rarity-api:
+    <<: *pilot-service
+    environment:
+      RARITY_PUBLIC_URL: https://${RARITY_PUBLIC_HOST:?RARITY_PUBLIC_HOST is required}
+    volumes:
+      - ${RARITY_CONFIG_DIR:?RARITY_CONFIG_DIR is required}/ca/ca.crt:/run/rarity-ca/ca.crt:ro
+
+  rarity-admin:
+    volumes:
+      - ${RARITY_CONFIG_DIR:?RARITY_CONFIG_DIR is required}/ca/ca.crt:/run/rarity-ca/ca.crt:ro
+
+  rarity-web:
+    <<: *pilot-service
+
+  postgres:
+    <<: *pilot-service
+    command:
+      - postgres
+      - -c
+      - ssl=on
+      - -c
+      - ssl_cert_file=/run/postgres-tls/server.crt
+      - -c
+      - ssl_key_file=/run/postgres-tls/server.key
+    volumes:
+      - rti_pilot_postgres_data:/var/lib/postgresql/data
+      - ${RARITY_CONFIG_DIR:?RARITY_CONFIG_DIR is required}/postgres/server.crt:/run/postgres-tls/server.crt:ro
+      - ${RARITY_CONFIG_DIR:?RARITY_CONFIG_DIR is required}/postgres/server.key:/run/postgres-tls/server.key:ro
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U "$$POSTGRES_USER" -d "$$POSTGRES_DB" -h localhost
+
+  valkey:
+    <<: *pilot-service
+    command:
+      - valkey-server
+      - --port
+      - "0"
+      - --tls-port
+      - "6379"
+      - --tls-cert-file
+      - /run/valkey-tls/server.crt
+      - --tls-key-file
+      - /run/valkey-tls/server.key
+      - --tls-ca-cert-file
+      - /run/valkey-tls/ca.crt
+      - --tls-auth-clients
+      - "no"
+      - --save
+      - ""
+      - --appendonly
+      - "no"
+    volumes:
+      - ${RARITY_CONFIG_DIR:?RARITY_CONFIG_DIR is required}/valkey/server.crt:/run/valkey-tls/server.crt:ro
+      - ${RARITY_CONFIG_DIR:?RARITY_CONFIG_DIR is required}/valkey/server.key:/run/valkey-tls/server.key:ro
+      - ${RARITY_CONFIG_DIR:?RARITY_CONFIG_DIR is required}/ca/ca.crt:/run/valkey-tls/ca.crt:ro
+    healthcheck:
+      test:
+        - CMD
+        - valkey-cli
+        - --tls
+        - --cacert
+        - /run/valkey-tls/ca.crt
+        - ping
+
+  minio:
+    <<: *pilot-service
+    volumes:
+      - rti_pilot_minio_data:/data
+      - ${RARITY_CONFIG_DIR:?RARITY_CONFIG_DIR is required}/minio/certs:/root/.minio/certs:ro
+    healthcheck:
+      test:
+        - CMD
+        - curl
+        - --fail
+        - --silent
+        - --show-error
+        - --cacert
+        - /root/.minio/certs/CAs/ca.crt
+        - https://localhost:9000/minio/health/live
+
+  caddy:
+    <<: *pilot-service
+    environment:
+      RARITY_PUBLIC_HOST: ${RARITY_PUBLIC_HOST:?RARITY_PUBLIC_HOST is required}
+    ports: !override
+      - "443:443"
+    volumes:
+      - ./Caddyfile.pilot:/etc/caddy/Caddyfile:ro
+      - rti_pilot_caddy_data:/data
+      - rti_pilot_caddy_config:/config
+    read_only: true
+    tmpfs: [/tmp]
+
+volumes:
+  rti_pilot_caddy_config:
+    name: rti_pilot_caddy_config
+  rti_pilot_caddy_data:
+    name: rti_pilot_caddy_data
+  rti_pilot_minio_data:
+    name: rti_pilot_minio_data
+  rti_pilot_postgres_data:
+    name: rti_pilot_postgres_data
